@@ -35,4 +35,4 @@ y abrir http://localhost:4173
 
 - Texto de introducción a Palomino en "Cómo llegar".
 - Fotos de referencia para el drawer de Hombres en "Cómo vestirse" (`assets/img/vestir/`); las de Mujeres ya están.
-- Ubicación exacta de la Bomba La Sierrita y del Hotel One Santuario en el mapa.
+- Ubicación exacta de la Bomba La Sierrita en el mapa (hoy es una búsqueda en Google Maps).
