@@ -177,3 +177,11 @@ body.drawer-open { overflow: hidden; }
 .swatch__meta { padding: .6rem .8rem; font-size: var(--fs-xs); }
 .swatch__meta b { display: block; font-weight: 400; color: var(--text); letter-spacing: .04em; }
 .swatch__meta span { color: var(--text-muted); }
+
+/* --- Lista de chequeo (qué llevar) --------------------------- */
+.checklist { display: grid; gap: .5rem; margin-top: var(--s-3); }
+.checklist li { display: grid; grid-template-columns: 1.1rem 1fr; gap: .75rem; align-items: start; }
+.checklist li::before {
+  content: ""; width: .9rem; height: .9rem; margin-top: .4rem;
+  border-radius: var(--r-blob); background: var(--green-300); box-shadow: 0 0 0 1px var(--green-500);
+}

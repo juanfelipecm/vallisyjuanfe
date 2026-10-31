@@ -155,10 +155,21 @@
       });
     }
     const scale = W < 900 ? 0.55 : 1;
+    // lado del río en cada sección (+1: el río va a la derecha del contenido)
+    const zones = [...stage.querySelectorAll('[data-river]')].map((sec) => ({
+      y0: sec.offsetTop, y1: sec.offsetTop + sec.offsetHeight,
+      side: sec.dataset.river === 'left' ? 1 : sec.dataset.river === 'right' ? -1 : 0,
+    }));
     items.forEach((it) => {
       const pt = masterPath.getPointAtLength(it.at * L);
       const w = it.w * scale;
-      it.x = pt.x + it.side * it.dist * scale - w / 2;
+      // las piezas grandes se van siempre al lado del río que no tiene contenido
+      let side = it.side;
+      if (it.w >= 250 && W >= 900) {
+        const z = zones.find((z) => pt.y >= z.y0 && pt.y <= z.y1);
+        if (z && z.side) side = z.side;
+      }
+      it.x = pt.x + side * it.dist * scale - w / 2;
       it.y = pt.y - w / 2;
       it.el.style.width = `${w}px`;
       it.el.style.left = `${it.x}px`;

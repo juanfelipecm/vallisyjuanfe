@@ -112,7 +112,8 @@
 .day { padding: clamp(1.5rem, 4vw, 2.5rem); }
 .day__date { display: flex; align-items: baseline; gap: var(--s-3); flex-wrap: wrap; margin-bottom: var(--s-4); }
 .day__date .display { font-size: var(--fs-lg); }
-.day__what { margin-top: var(--s-5); padding-top: var(--s-5); border-top: 1px dashed var(--line-strong); }
+.day .facts { margin-top: var(--s-4); }
+.day__actions { margin-top: var(--s-5); }
 
 /* ruta: pasos de transporte */
 .route { display: grid; gap: var(--s-4); counter-reset: step; }
