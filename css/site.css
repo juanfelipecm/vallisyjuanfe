@@ -63,7 +63,7 @@
 .hero__text { position: relative; z-index: 1; width: min(100%, 50rem); text-align: center; }
 .hero__names { margin: var(--s-6) 0; }
 .hero__names .display { display: block; }
-.hero__amp { display: block; margin: .35rem 0; color: var(--green-500); }
+.hero__amp { display: block; margin: .5rem 0; color: var(--green-500); font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem); }
 .hero__place { margin-top: var(--s-6); color: var(--text-soft); }
 .hero__place strong { font-weight: 400; color: var(--accent-deep); }
 .hero__mono { position: static; width: clamp(40px, 5vw, 56px); margin: var(--s-7) auto 0; opacity: .9; }
