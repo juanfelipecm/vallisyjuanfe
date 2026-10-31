@@ -15,15 +15,18 @@ css/site.css          Nav, escenario del río, hero, secciones, footer
 js/river.js           Dibuja el río siguiendo las secciones y lo revela con el scroll; coloca la flora
 js/drawers.js         Paneles laterales
 js/main.js            Reveal al hacer scroll, nav, cuenta regresiva
-assets/img/           Acuarela, logo, invitación, save the date, moodboard, sprites recortados
+assets/img/           Logo, invitación, save the date, moodboard, acuarela original (referencia)
+assets/img/wc/        Acuarelas propias generadas: copas, palmas y selvas
+tools/watercolor.py   Generador de acuarelas (python3 tools/watercolor.py; requiere numpy y Pillow)
+tools/serve.py        Servidor estático de desarrollo sin caché
 ```
 
 ## Cómo verlo
 
-Cualquier servidor estático sirve:
+Cualquier servidor estático sirve. Para desarrollo (sin caché):
 
 ```bash
-python3 -m http.server 4173
+python3 tools/serve.py 4173
 ```
 
 y abrir http://localhost:4173

@@ -2,6 +2,7 @@
    Aparición de contenido, navegación y cuenta regresiva
    ============================================================ */
 (function () {
+  if (location.search.includes('debug-river')) document.body.classList.add('debug-river');
   /* reveal al entrar en pantalla */
   const io = new IntersectionObserver((entries) => {
     entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); } });

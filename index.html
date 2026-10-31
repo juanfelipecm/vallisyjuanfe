@@ -38,22 +38,17 @@
 
 <main class="stage" id="inicio">
   <!-- El río: se dibuja con JS siguiendo las secciones -->
-  <svg class="river" id="river" aria-hidden="true" preserveAspectRatio="none">
-    <path class="river__bank"/>
-    <path class="river__water"/>
-    <path class="river__line"/>
-    <mask id="river-reveal" maskUnits="userSpaceOnUse"><path class="river__mask"/></mask>
-    <g mask="url(#river-reveal)"><path class="river__glint"/></g>
-  </svg>
+  <svg class="river-master" id="river-master" aria-hidden="true"><path/></svg>
+  <div class="river-reveal" id="river-reveal" aria-hidden="true"></div>
   <div class="flora" id="flora" aria-hidden="true"></div>
 
   <div class="section-wrap">
 
     <!-- ===================== HERO ===================== -->
     <header class="hero">
-      <div class="hero__wash hero__wash--a"></div>
-      <div class="hero__wash hero__wash--b"></div>
-      <div class="hero__card reveal is-visible">
+      <img class="hero__wash hero__wash--a" src="assets/img/wc/selva-01.png" alt="">
+      <img class="hero__wash hero__wash--b" src="assets/img/wc/selva-02.png" alt="">
+      <div class="hero__text reveal is-visible">
         <p class="eyebrow eyebrow--accent">Los invitamos a celebrar nuestro matrimonio</p>
         <div class="hero__names">
           <h1 class="display display--names">Valeria Ortiz Jaramillo</h1>
@@ -225,7 +220,6 @@
   <img src="assets/img/logo-vjf.png" alt="Monograma V y JF">
   <p class="eyebrow">Valeria &amp; Juan Felipe · 13 · 02 · 2027</p>
   <p class="meta">Palomino, Guajira, Colombia</p>
-  <div class="footer__sea" aria-hidden="true"></div>
 </footer>
 
 <!-- ===================== DRAWERS ===================== -->

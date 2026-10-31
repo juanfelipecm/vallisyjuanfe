@@ -18,78 +18,55 @@
   transition: color var(--dur-fast), border-color var(--dur-fast);
 }
 .nav__links a:hover, .nav__links a.is-current { color: var(--accent-deep); border-color: var(--green-500); }
-@media (max-width: 760px) { .nav__links { display: none; } }
+@media (max-width: 980px) { .nav__links { display: none; } }
+/* ?debug-river : atenúa el contenido para ver solo el río y la flora */
+.debug-river .section-wrap, .debug-river .nav { opacity: .12; }
 
 /* --- Escenario del río -------------------------------------- */
 .stage { position: relative; isolation: isolate; }
-.river {
-  position: absolute; inset: 0; z-index: var(--z-river);
-  width: 100%; height: 100%;
-  pointer-events: none;
-  overflow: visible;
+.river-master { position: absolute; top: 0; left: 0; opacity: 0; pointer-events: none; }
+.river-master path { fill: none; }
+.river-reveal {
+  position: absolute; top: 0; left: 0; width: 100%; height: 0;
+  overflow: hidden; z-index: var(--z-river); pointer-events: none;
 }
+/* frente del río: se funde con la arena en vez de cortarse */
+.river-reveal::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 320px;
+  background: linear-gradient(to bottom, transparent, var(--bg) 85%);
+}
+.river { position: absolute; left: 0; width: 100%; overflow: hidden; will-change: transform; }
 .river path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.river__bank  { stroke: var(--river-sand); stroke-width: 54; opacity: .95; }
-.river__water { stroke: var(--river-200); stroke-width: 26; }
-.river__line  { stroke: var(--river-300); stroke-width: 5;  opacity: .8; }
-.river__mask  { stroke: #fff; stroke-width: 30; }
-.river__glint { stroke: #fff; stroke-width: 2; opacity: .55; stroke-dasharray: 3 26; animation: glint 9s linear infinite; }
-@keyframes glint { to { stroke-dashoffset: -290; } }
-@media (max-width: 760px) {
-  .river__bank { stroke-width: 38; } .river__water { stroke-width: 18; } .river__line { stroke-width: 4; }
-}
+.river__bank        { stroke: #EFE3BA; opacity: .7; }
+.river__bank-deep   { stroke: #E6D5A2; opacity: .3; }
+.river__water-rim   { stroke: #A9CBD3; opacity: .55; }
+.river__water       { stroke: #C9E2E6; opacity: .95; }
+.river__water-light { stroke: #E2F0F2; opacity: .6; }
+.river__pigment     { stroke: #8FB8C4; opacity: .5; }
 
-.flora {
-  position: absolute; inset: 0; z-index: var(--z-flora);
-  pointer-events: none; overflow: hidden;
-}
-.flora__item {
-  position: absolute; left: 0; top: 0;
-  opacity: 0;
-  will-change: transform, opacity;
-  mix-blend-mode: multiply;
-}
+.flora { position: absolute; inset: 0; z-index: var(--z-flora); pointer-events: none; overflow: hidden; }
+.flora__item { position: absolute; left: 0; top: 0; opacity: 0; will-change: transform, opacity; mix-blend-mode: multiply; }
 .flora__item img { width: 100%; height: auto; }
 
 .section-wrap { position: relative; z-index: var(--z-content); }
 
-/* --- Hero (estilo invitación) ------------------------------- */
+/* --- Hero (sobre la arena, sin tarjeta) ---------------------- */
 .hero {
   min-height: 100svh;
   display: grid; place-items: center;
-  padding: calc(var(--s-10)) var(--gutter) var(--s-9);
-  position: relative;
-  overflow: hidden;
+  padding: var(--s-10) var(--gutter) var(--s-10);
+  position: relative; overflow: hidden;
 }
-.hero__wash {
-  position: absolute; z-index: 0; pointer-events: none;
-  width: min(70vw, 820px); aspect-ratio: 915 / 650;
-  background: url("../assets/img/acuarela-rio.png") center / contain no-repeat;
-  opacity: .55; mix-blend-mode: multiply;
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 70%);
-          mask-image: radial-gradient(ellipse at center, #000 20%, transparent 70%);
-}
-.hero__wash--a { right: -14vw; top: -6vh; transform: rotate(8deg); }
-.hero__wash--b { left: -18vw; bottom: -10vh; transform: rotate(-12deg) scaleX(-1); opacity: .4; }
-.hero__card {
-  position: relative; z-index: 1;
-  width: min(100%, 46rem);
-  text-align: center;
-  padding: clamp(2.5rem, 7vw, 5rem) clamp(1.5rem, 6vw, 4.5rem);
-  background: var(--surface);
-  box-shadow: var(--shadow-paper);
-  border-radius: 6px;
-}
-.hero__card::after {  /* textura de papel de algodón */
-  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: .35; mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.012 .02' numOctaves='2' seed='7'/><feColorMatrix values='0 0 0 0 .6 0 0 0 0 .56 0 0 0 0 .45 0 0 0 .18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-}
-.hero__names { margin: var(--s-5) 0; }
+.hero__wash { position: absolute; z-index: 0; pointer-events: none; mix-blend-mode: multiply; opacity: .9; }
+.hero__wash--a { width: min(72vw, 980px); right: -18vw; top: -14vh; transform: rotate(6deg); }
+.hero__wash--b { width: min(60vw, 760px); left: -16vw; bottom: -16vh; transform: rotate(-9deg); opacity: .8; }
+.hero__text { position: relative; z-index: 1; width: min(100%, 50rem); text-align: center; }
+.hero__names { margin: var(--s-6) 0; }
 .hero__names .display { display: block; }
-.hero__amp { display: block; margin: .25rem 0; }
+.hero__amp { display: block; margin: .35rem 0; }
 .hero__place { margin-top: var(--s-6); color: var(--text-soft); }
 .hero__place strong { font-weight: 400; color: var(--accent-deep); }
-.hero__mono { position: absolute; right: clamp(1rem, 4vw, 2.5rem); bottom: clamp(1rem, 4vw, 2.5rem); width: clamp(44px, 6vw, 64px); opacity: .9; }
+.hero__mono { position: static; width: clamp(40px, 5vw, 56px); margin: var(--s-7) auto 0; opacity: .9; }
 .hero__count { margin-top: var(--s-6); }
 .hero__cue {
   position: absolute; left: 50%; bottom: var(--s-6); transform: translateX(-50%); z-index: 1;
@@ -98,6 +75,10 @@
 }
 .hero__cue svg { width: 14px; height: 24px; animation: cue 2.6s var(--ease-soft) infinite; }
 @keyframes cue { 0%, 100% { transform: translateY(0); opacity: .5 } 50% { transform: translateY(6px); opacity: 1 } }
+@media (max-width: 760px) {
+  .hero__wash--a { width: 120vw; right: -40vw; top: -10vh; }
+  .hero__wash--b { width: 110vw; left: -45vw; bottom: -12vh; }
+}
 
 /* --- Secciones a lo largo del río ---------------------------- */
 .section {
@@ -153,4 +134,3 @@
   text-align: center; color: var(--text-muted);
 }
 .footer img { width: 72px; margin: 0 auto var(--s-4); opacity: .9; }
-.footer__sea { height: 180px; margin-top: var(--s-8); background: linear-gradient(to bottom, transparent, var(--river-100)); -webkit-mask-image: linear-gradient(to bottom, transparent, #000); mask-image: linear-gradient(to bottom, transparent, #000); }
