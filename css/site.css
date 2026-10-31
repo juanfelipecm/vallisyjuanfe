@@ -109,7 +109,7 @@
 /* itinerario: dos días */
 .days { display: grid; gap: var(--s-7); }
 .day { padding: clamp(1.5rem, 4vw, 2.5rem); }
-.day__date { margin: var(--s-3) 0 var(--s-2); font-size: var(--fs-sm); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--text-soft); }
+.day__date { margin: var(--s-3) 0 var(--s-1); font-size: var(--fs-md); color: var(--text-soft); }
 .day__title { font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.1rem); margin-bottom: var(--s-5); }
 .day .facts { margin-top: var(--s-5); }
 .day__actions { margin-top: var(--s-5); }
