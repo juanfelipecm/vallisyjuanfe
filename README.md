@@ -33,7 +33,6 @@ y abrir http://localhost:4173
 
 ## Pendientes de contenido
 
-- Número de WhatsApp y teléfono en la sección "Confirma tu asistencia" (buscar `57XXXXXXXXXX`).
 - Texto de introducción a Palomino en "Cómo llegar".
 - Ubicación y enlace de los hoteles Casa Coraje, Naio y Pavo Real.
 - Fotos de referencia para los drawers de "Cómo vestirse" (`assets/img/vestir/`).
