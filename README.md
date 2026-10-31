@@ -34,5 +34,4 @@ y abrir http://localhost:4173
 ## Pendientes de contenido
 
 - Texto de introducción a Palomino en "Cómo llegar".
-- Fotos de referencia para el drawer de Hombres en "Cómo vestirse" (`assets/img/vestir/`); las de Mujeres ya están.
 - Ubicación exacta de la Bomba La Sierrita en el mapa (hoy es una búsqueda en Google Maps).

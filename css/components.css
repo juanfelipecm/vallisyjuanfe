@@ -156,6 +156,8 @@ body.drawer-open { overflow: hidden; }
 }
 .inspo__item img { width: 100%; height: 100%; object-fit: cover; }
 .inspo__item:has(img) { aspect-ratio: 3 / 4; }
+.inspo:has(> :only-child) { grid-template-columns: 1fr; }
+.inspo:has(> :only-child) .inspo__item { aspect-ratio: 4 / 5; }
 .inspo__item:nth-child(3n):not(:has(img)) { aspect-ratio: 1; }
 
 /* mapa embebido */
