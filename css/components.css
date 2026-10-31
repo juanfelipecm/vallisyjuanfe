@@ -155,7 +155,8 @@ body.drawer-open { overflow: hidden; }
   color: var(--text-muted); font-size: var(--fs-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase;
 }
 .inspo__item img { width: 100%; height: 100%; object-fit: cover; }
-.inspo__item:nth-child(3n) { aspect-ratio: 1; }
+.inspo__item:has(img) { aspect-ratio: 3 / 4; }
+.inspo__item:nth-child(3n):not(:has(img)) { aspect-ratio: 1; }
 
 /* mapa embebido */
 .map-frame { border: 0; width: 100%; aspect-ratio: 4 / 5; border-radius: var(--r-md); filter: sepia(.25) saturate(.8) hue-rotate(-10deg); }
