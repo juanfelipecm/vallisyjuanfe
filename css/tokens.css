@@ -54,7 +54,6 @@
   /* --- Tipografía ------------------------------------------- */
   --font-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
   --font-mono:    "Courier Prime", "Courier New", Courier, monospace;
-  --font-script:  "Parisienne", "Snell Roundhand", cursive;
 
   --fs-2xs:  0.6875rem;                 /* 11px  etiquetas muy pequeñas */
   --fs-xs:   0.75rem;                   /* 12px  eyebrow */
@@ -65,7 +64,6 @@
   --fs-xl:   clamp(1.75rem, 1.2rem + 2.2vw, 2.5rem);   /* títulos de sección */
   --fs-2xl:  clamp(2.25rem, 1.4rem + 4vw, 4rem);       /* nombres */
   --fs-3xl:  clamp(2.75rem, 1.5rem + 6vw, 5.5rem);     /* hero */
-  --fs-script: clamp(2rem, 1.2rem + 3vw, 3.25rem);
 
   --lh-tight: 1.08;
   --lh-snug:  1.3;

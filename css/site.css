@@ -63,7 +63,7 @@
 .hero__text { position: relative; z-index: 1; width: min(100%, 50rem); text-align: center; }
 .hero__names { margin: var(--s-6) 0; }
 .hero__names .display { display: block; }
-.hero__amp { display: block; margin: .35rem 0; }
+.hero__amp { display: block; margin: .35rem 0; color: var(--green-500); }
 .hero__place { margin-top: var(--s-6); color: var(--text-soft); }
 .hero__place strong { font-weight: 400; color: var(--accent-deep); }
 .hero__mono { position: static; width: clamp(40px, 5vw, 56px); margin: var(--s-7) auto 0; opacity: .9; }
@@ -97,7 +97,6 @@
 }
 .section__head { margin-bottom: var(--s-6); }
 .section__head .display { margin: .5rem 0 .75rem; }
-.section__head .script { margin-bottom: .25rem; }
 .section + .section { padding-top: var(--s-10); }
 
 /* contenido con un velo de arena para que el río no compita con el texto */
@@ -110,7 +109,7 @@
 /* itinerario: dos días */
 .days { display: grid; gap: var(--s-7); }
 .day { padding: clamp(1.5rem, 4vw, 2.5rem); }
-.day__date { display: flex; align-items: baseline; gap: var(--s-3); flex-wrap: wrap; margin-bottom: var(--s-4); }
+.day__date { margin: .35rem 0 var(--s-4); }
 .day__date .display { font-size: var(--fs-lg); }
 .day .facts { margin-top: var(--s-4); }
 .day__actions { margin-top: var(--s-5); }

@@ -7,7 +7,7 @@
   <link rel="icon" href="assets/img/logo-vjf.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Parisienne&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
@@ -45,7 +45,7 @@
 
   <header class="ds-head">
     <p class="eyebrow eyebrow--accent">Design system · v0.1</p>
-    <h1 class="display display--hero">Valeria <span class="script" style="font-size:.7em">&amp;</span> Juan Felipe</h1>
+    <h1 class="display display--hero">Valeria &amp; Juan Felipe</h1>
     <p class="lead measure" style="margin-top: var(--s-4)">Un universo visual para una boda a la orilla del río Palomino, en los valles de la Sierra Nevada de Santa Marta. Papel de algodón, arena suave, verdes frondosos de acuarela y un río que recorre todo.</p>
     <p class="cluster" style="margin-top: var(--s-5)"><a class="btn" href="index.html">Ver el sitio</a><span class="chip chip--sand">Tokens en css/tokens.css</span></p>
   </header>
@@ -61,7 +61,7 @@
       </div>
       <div class="stack">
         <p><b class="display display--sub">Todo florece despacio.</b><br><span class="soft">Las cosas aparecen, no saltan. Duraciones largas, curvas suaves, nunca rebotes.</span></p>
-        <p><b class="display display--sub">Tres voces tipográficas.</b><br><span class="soft">Didona para los nombres, máquina de escribir para la información, caligrafía para los susurros.</span></p>
+        <p><b class="display display--sub">Dos voces tipográficas.</b><br><span class="soft">Didona para los nombres y títulos, máquina de escribir para toda la información. Nada de cursivas ni caligrafías.</span></p>
       </div>
     </div>
   </section>
@@ -129,9 +129,9 @@
         <p class="ds-note">La máquina de escribir de la invitación. Cuerpo de texto, fechas, horas, etiquetas y botones. Las etiquetas van en versalitas espaciadas.</p>
       </div>
       <div class="ds-sample stack">
-        <p class="eyebrow">Susurro · Parisienne</p>
-        <p class="script">Reserva nuestra fecha</p>
-        <p class="ds-note">La caligrafía del save the date. Solo para frases cortas que anteceden un título, el "&amp;" y nombres de momentos. Nunca para información.</p>
+        <p class="eyebrow">Etiquetas · Courier Prime en versalitas</p>
+        <p class="eyebrow eyebrow--accent">Antes del sí</p>
+        <p class="ds-note">Lo que antes era caligrafía (momentos como "Antes del sí", "El matrimonio") va ahora en etiqueta: mono pequeña, espaciada, en verde del logo. Una sola jerarquía para todo lo que anticipa un título.</p>
       </div>
     </div>
 
@@ -140,7 +140,6 @@
       <div class="type-row"><span class="meta">display--names · 2xl</span><span class="display display--names">Juan Felipe Castillo</span></div>
       <div class="type-row"><span class="meta">display--section · xl</span><span class="display display--section">Dos días junto al río</span></div>
       <div class="type-row"><span class="meta">display--sub · lg</span><span class="display display--sub">Tubbing por el río Don Diego</span></div>
-      <div class="type-row"><span class="meta">script</span><span class="script">Antes del sí</span></div>
       <div class="type-row"><span class="meta">lead · md</span><span class="lead">Un viernes para mojarse y un sábado para celebrar.</span></div>
       <div class="type-row"><span class="meta">body · base</span><span>Entre monos aulladores y garzas de colores recorreremos lentamente el río.</span></div>
       <div class="type-row"><span class="meta">meta · sm</span><span class="meta">Ubicación y enlace pendientes</span></div>
@@ -252,7 +251,7 @@
         <p class="eyebrow eyebrow--accent">Chips</p>
         <div class="ds-sample cluster">
           <span class="chip">Vestido largo</span>
-          <span class="chip chip--sand">1:00 p.m. – 6:00 p.m.</span>
+          <span class="chip chip--sand">Pendiente</span>
           <span class="chip chip--river">Faltan 470 días</span>
           <span class="chip chip--outline">Pendiente</span>
         </div>
@@ -260,12 +259,13 @@
       <div class="stack">
         <p class="eyebrow eyebrow--accent">Papel y datos</p>
         <article class="paper stack">
-          <p class="script script--sm">Antes del sí</p>
+          <p class="eyebrow eyebrow--accent">Antes del sí</p>
           <h3 class="display display--sub">Viernes, 12 de febrero</h3>
           <dl class="facts">
-            <dt>Punto de encuentro</dt><dd>Bomba La Sierrita, Palomino</dd>
-            <dt>Hora</dt><dd>1:00 p.m.</dd>
+            <dt>Hora</dt><dd>1:00 p.m. – 6:00 p.m.</dd>
+            <dt>Encuentro</dt><dd>Bomba La Sierrita, Palomino</dd>
           </dl>
+          <p class="ds-note">Hora, lugar y encuentro siempre como datos de la misma lista. Los chips quedan para estados y etiquetas sueltas, no para horas.</p>
         </article>
         <ul class="list-cards">
           <li class="list-card"><div><span class="list-card__title">Hotel Casa Coraje</span><p class="meta">Palomino</p></div><a class="btn btn--ghost" href="#">Ver <svg><use href="#i-ext"/></svg></a></li>

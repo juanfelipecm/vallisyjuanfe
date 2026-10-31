@@ -104,7 +104,7 @@
 /* --- Dress code ----------------------------------------------- */
 .dress { display: grid; gap: var(--s-5); grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
 .dress__card { padding: var(--s-5); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow-paper); }
-.dress__card .script { font-size: 2.25rem; margin-bottom: var(--s-2); }
+.dress__card h3 { margin-bottom: var(--s-3); }
 
 /* --- Drawer ---------------------------------------------------- */
 .drawer-backdrop {

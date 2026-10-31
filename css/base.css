@@ -39,10 +39,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .display--names { font-size: var(--fs-2xl); }
 .display--section { font-size: var(--fs-xl); }
 .display--sub { font-size: var(--fs-lg); line-height: var(--lh-snug); }
-.display i, .display em { font-style: italic; font-weight: 400; }
 
-.script { font-family: var(--font-script); font-weight: 400; line-height: 1; color: var(--green-700); font-size: var(--fs-script); }
-.script--sm { font-size: 1.5rem; }
 
 .mono { font-family: var(--font-mono); }
 .eyebrow {
