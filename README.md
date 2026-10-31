@@ -34,6 +34,5 @@ y abrir http://localhost:4173
 ## Pendientes de contenido
 
 - Texto de introducción a Palomino en "Cómo llegar".
-- Ubicación y enlace de los hoteles Casa Coraje, Naio y Pavo Real.
 - Fotos de referencia para el drawer de Hombres en "Cómo vestirse" (`assets/img/vestir/`); las de Mujeres ya están.
 - Ubicación exacta de la Bomba La Sierrita y del Hotel One Santuario en el mapa.
