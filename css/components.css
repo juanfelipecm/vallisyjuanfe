@@ -1,0 +1,179 @@
+/* ============================================================
+   Componentes
+   ============================================================ */
+
+/* --- Botones ------------------------------------------------ */
+.btn {
+  display: inline-flex; align-items: center; gap: var(--s-2);
+  padding: .8rem 1.4rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--r-pill);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--accent);
+  background: transparent;
+  transition: background var(--dur-fast) var(--ease-soft), color var(--dur-fast) var(--ease-soft), transform var(--dur-fast) var(--ease-soft);
+}
+.btn:hover { background: var(--accent); color: var(--sand-0); }
+.btn:active { transform: translateY(1px); }
+.btn--solid { background: var(--accent); color: var(--sand-0); }
+.btn--solid:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
+.btn--warm { border-color: var(--accent-warm); color: var(--accent-warm); }
+.btn--warm:hover { background: var(--accent-warm); color: var(--sand-0); }
+.btn--ghost { border-color: transparent; padding-inline: .5rem; }
+.btn--ghost:hover { background: transparent; color: var(--accent-deep); }
+.btn--ghost:hover .btn__underline { transform: scaleX(1); }
+.btn svg { width: 1em; height: 1em; }
+
+/* enlace con subrayado que crece */
+.link {
+  position: relative; color: var(--accent);
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 100% 1px; background-repeat: no-repeat; background-position: 0 100%;
+  transition: background-size var(--dur-fast) var(--ease-soft);
+}
+.link:hover { background-size: 0% 1px; }
+
+/* --- Chips y etiquetas -------------------------------------- */
+.chip {
+  display: inline-flex; align-items: center; gap: .5em;
+  padding: .35rem .9rem;
+  border-radius: var(--r-pill);
+  background: var(--green-100);
+  color: var(--green-800);
+  font-size: var(--fs-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase;
+}
+.chip--sand { background: var(--sand-100); color: var(--text-soft); }
+.chip--river { background: var(--river-100); color: var(--green-800); }
+.chip--outline { background: transparent; border: 1px solid var(--line-strong); }
+
+/* --- Papel (tarjetas) --------------------------------------- */
+.paper {
+  background: var(--surface);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-paper);
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  position: relative;
+}
+.paper--flat { box-shadow: none; border: 1px solid var(--line); }
+.paper--sand { background: var(--surface-2); }
+.paper--torn { border-radius: var(--r-lg); }
+
+/* --- Separador con hoja ------------------------------------- */
+.leaf-rule {
+  display: flex; align-items: center; gap: var(--s-4);
+  color: var(--green-500);
+}
+.leaf-rule::before, .leaf-rule::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.leaf-rule svg { width: 28px; height: 28px; flex: none; }
+
+/* --- Línea de tiempo ---------------------------------------- */
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before { content: ""; position: absolute; left: .45rem; top: .6rem; bottom: .6rem; width: 1px; background: var(--line-strong); }
+.timeline__item { position: relative; padding-bottom: var(--s-6); }
+.timeline__item:last-child { padding-bottom: 0; }
+.timeline__item::before {
+  content: ""; position: absolute; left: -2rem; top: .55rem;
+  width: .95rem; height: .95rem; border-radius: var(--r-blob);
+  background: var(--green-300); border: 2px solid var(--sand-0);
+  box-shadow: 0 0 0 1px var(--green-500);
+}
+.timeline__time { font-size: var(--fs-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--accent); }
+.timeline__title { font-family: var(--font-display); font-size: var(--fs-lg); color: var(--accent-deep); margin: .2rem 0 .4rem; }
+
+/* --- Definiciones (Lugar / Punto de encuentro) --------------- */
+.facts { display: grid; grid-template-columns: max-content 1fr; gap: .4rem 1.25rem; }
+.facts dt { font-size: var(--fs-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--text-muted); padding-top: .25rem; }
+.facts dd { margin: 0; }
+@media (max-width: 480px) { .facts { grid-template-columns: 1fr; gap: 0 } .facts dd { margin-bottom: .75rem } }
+
+/* --- Lista de hoteles ----------------------------------------- */
+.list-cards { display: grid; gap: var(--s-4); }
+.list-card {
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: var(--s-4);
+  padding: var(--s-4) var(--s-5);
+  border: 1px solid var(--line); border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  transition: border-color var(--dur-fast) var(--ease-soft), transform var(--dur-base) var(--ease-out);
+}
+.list-card:hover { border-color: var(--green-500); transform: translateX(4px); }
+.list-card__title { font-family: var(--font-display); font-size: var(--fs-lg); color: var(--accent-deep); }
+
+/* --- Dress code ----------------------------------------------- */
+.dress { display: grid; gap: var(--s-5); grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.dress__card { padding: var(--s-5); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow-paper); }
+.dress__card .script { font-size: 2.25rem; margin-bottom: var(--s-2); }
+
+/* --- Drawer ---------------------------------------------------- */
+.drawer-backdrop {
+  position: fixed; inset: 0; z-index: var(--z-drawer);
+  background: rgba(39,61,40,.28);
+  backdrop-filter: blur(2px);
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--dur-base) var(--ease-soft);
+}
+.drawer {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: calc(var(--z-drawer) + 1);
+  width: min(32rem, 100%);
+  background: var(--surface);
+  box-shadow: var(--shadow-drawer);
+  transform: translateX(104%);
+  transition: transform var(--dur-slow) var(--ease-out);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.drawer--left { right: auto; left: 0; transform: translateX(-104%); box-shadow: 24px 0 64px -32px rgba(39,61,40,.35); }
+.drawer[aria-hidden="false"] { transform: translateX(0); }
+.drawer-backdrop.is-open { opacity: 1; pointer-events: auto; }
+.drawer__head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--s-5) var(--s-6) var(--s-4);
+  border-bottom: 1px solid var(--line);
+}
+.drawer__body { padding: var(--s-5) var(--s-6) var(--s-8); overflow-y: auto; flex: 1; }
+.drawer__close { width: 2.5rem; height: 2.5rem; border-radius: 50%; display: grid; place-items: center; color: var(--accent); transition: background var(--dur-fast); }
+.drawer__close:hover { background: var(--green-100); }
+.drawer__close svg { width: 1.1rem; height: 1.1rem; }
+/* el contenido del drawer entra con un pequeño retraso */
+.drawer__body > * { opacity: 0; transform: translateY(12px); transition: opacity var(--dur-base) var(--ease-soft), transform var(--dur-base) var(--ease-soft); }
+.drawer[aria-hidden="false"] .drawer__body > * { opacity: 1; transform: none; }
+.drawer[aria-hidden="false"] .drawer__body > :nth-child(1) { transition-delay: .35s }
+.drawer[aria-hidden="false"] .drawer__body > :nth-child(2) { transition-delay: .45s }
+.drawer[aria-hidden="false"] .drawer__body > :nth-child(3) { transition-delay: .55s }
+.drawer[aria-hidden="false"] .drawer__body > :nth-child(4) { transition-delay: .65s }
+.drawer[aria-hidden="false"] .drawer__body > :nth-child(n+5) { transition-delay: .75s }
+body.drawer-open { overflow: hidden; }
+
+/* galería de inspiración dentro del drawer */
+.inspo { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-3); }
+.inspo__item {
+  aspect-ratio: 3 / 4; border-radius: var(--r-md); overflow: hidden;
+  background: linear-gradient(160deg, var(--sand-100), var(--sand-200));
+  display: grid; place-items: center; text-align: center; padding: var(--s-3);
+  color: var(--text-muted); font-size: var(--fs-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase;
+}
+.inspo__item img { width: 100%; height: 100%; object-fit: cover; }
+.inspo__item:nth-child(3n) { aspect-ratio: 1; }
+
+/* mapa embebido */
+.map-frame { border: 0; width: 100%; aspect-ratio: 4 / 5; border-radius: var(--r-md); filter: sepia(.25) saturate(.8) hue-rotate(-10deg); }
+
+/* --- Reveal (aparecer al hacer scroll) ---------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance));
+  transition: opacity var(--dur-slow) var(--ease-soft), transform var(--dur-slow) var(--ease-soft);
+  transition-delay: calc(var(--i, 0) * 120ms);
+  will-change: opacity, transform;
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
+/* --- Swatch (para la página del design system) -------------- */
+.swatch { border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+.swatch__color { height: 5.5rem; }
+.swatch__meta { padding: .6rem .8rem; font-size: var(--fs-xs); }
+.swatch__meta b { display: block; font-weight: 400; color: var(--text); letter-spacing: .04em; }
+.swatch__meta span { color: var(--text-muted); }

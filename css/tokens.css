@@ -1,0 +1,111 @@
+/* ============================================================
+   V & JF · Design tokens
+   Palomino, Guajira · 13 de febrero de 2027
+   Paleta tomada de: moodboard, acuarela del río, logo e invitación.
+   ============================================================ */
+:root {
+  /* --- Arena (fondos y papel) ------------------------------- */
+  --sand-0:   #FBF7EF;   /* papel de la invitación, tarjetas */
+  --sand-50:  #F4EDE0;   /* fondo de página: "arena suave" */
+  --sand-100: #ECE2CF;   /* sobre, superficies secundarias */
+  --sand-200: #DECFB4;   /* bordes suaves, separadores */
+  --sand-300: #C9AB8A;   /* arena del moodboard, acento cálido */
+  --cream:    #ECD7BE;   /* crema del moodboard */
+
+  /* --- Verdes (selva) --------------------------------------- */
+  --green-950: #273D28;  /* verde profundo del moodboard, sobre */
+  --green-800: #3A4A33;
+  --green-700: #4C5840;  /* verde del logo y del texto de la invitación */
+  --green-600: #5E6E4C;
+  --green-500: #7C9A6B;
+  --green-400: #96BD8C;
+  --green-300: #B4D8B4;  /* copas de la acuarela */
+  --green-200: #CCE4CC;  /* copas claras */
+  --green-100: #E4F0D8;  /* velo de selva */
+
+  /* --- Acentos ---------------------------------------------- */
+  --olive:      #817633; /* oliva del moodboard */
+  --terracotta: #AF5137; /* terracota del moodboard: usar con moderación */
+
+  /* --- Río -------------------------------------------------- */
+  --river-300:  #9CC3CC; /* línea de agua */
+  --river-200:  #BFDDE3; /* cauce */
+  --river-100:  #DCEDEF; /* brillo */
+  --river-sand: #F3E9C4; /* orilla de arena en la acuarela */
+
+  /* --- Tinta ------------------------------------------------ */
+  --ink:       #2F3A2B;
+  --ink-soft:  #545844;
+  --ink-muted: #7D816E;
+  --line:      rgba(76, 88, 64, 0.18);
+  --line-strong: rgba(76, 88, 64, 0.38);
+
+  /* --- Semánticos ------------------------------------------- */
+  --bg:          var(--sand-50);
+  --surface:     var(--sand-0);
+  --surface-2:   var(--sand-100);
+  --text:        var(--ink);
+  --text-soft:   var(--ink-soft);
+  --text-muted:  var(--ink-muted);
+  --accent:      var(--green-700);
+  --accent-deep: var(--green-950);
+  --accent-warm: var(--terracotta);
+
+  /* --- Tipografía ------------------------------------------- */
+  --font-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --font-mono:    "Courier Prime", "Courier New", Courier, monospace;
+  --font-script:  "Parisienne", "Snell Roundhand", cursive;
+
+  --fs-2xs:  0.6875rem;                 /* 11px  etiquetas muy pequeñas */
+  --fs-xs:   0.75rem;                   /* 12px  eyebrow */
+  --fs-sm:   0.875rem;                  /* 14px  meta, nav */
+  --fs-base: 1rem;                      /* 16px  cuerpo */
+  --fs-md:   1.125rem;                  /* 18px  cuerpo destacado */
+  --fs-lg:   1.375rem;                  /* 22px  subtítulos */
+  --fs-xl:   clamp(1.75rem, 1.2rem + 2.2vw, 2.5rem);   /* títulos de sección */
+  --fs-2xl:  clamp(2.25rem, 1.4rem + 4vw, 4rem);       /* nombres */
+  --fs-3xl:  clamp(2.75rem, 1.5rem + 6vw, 5.5rem);     /* hero */
+  --fs-script: clamp(2rem, 1.2rem + 3vw, 3.25rem);
+
+  --lh-tight: 1.08;
+  --lh-snug:  1.3;
+  --lh-base:  1.7;
+  --tracking-wide:  0.14em;
+  --tracking-wider: 0.22em;
+
+  /* --- Espacio ---------------------------------------------- */
+  --s-1: 0.25rem;  --s-2: 0.5rem;  --s-3: 0.75rem; --s-4: 1rem;
+  --s-5: 1.5rem;   --s-6: 2rem;    --s-7: 3rem;    --s-8: 4rem;
+  --s-9: 6rem;     --s-10: 8rem;   --s-11: 12rem;  --s-12: 16rem;
+
+  --measure: 34rem;        /* ancho máximo de lectura */
+  --container: 72rem;
+  --gutter: clamp(1rem, 4vw, 3rem);
+
+  /* --- Forma ------------------------------------------------ */
+  --r-sm:   4px;
+  --r-md:   14px;
+  --r-lg:   24px;
+  --r-pill: 999px;
+  --r-blob: 48% 52% 55% 45% / 52% 44% 56% 48%;   /* forma orgánica de piedra */
+
+  --shadow-paper: 0 1px 0 rgba(76,88,64,.05), 0 18px 48px -24px rgba(39,61,40,.28);
+  --shadow-drawer: -24px 0 64px -32px rgba(39,61,40,.35);
+
+  /* --- Movimiento ------------------------------------------- */
+  --ease-soft:  cubic-bezier(.22,.61,.36,1);
+  --ease-out:   cubic-bezier(.16,1,.3,1);
+  --ease-river: cubic-bezier(.4,0,.2,1);
+  --dur-fast:   .35s;
+  --dur-base:   .9s;
+  --dur-slow:   1.6s;
+  --dur-river:  2.4s;
+  --reveal-distance: 28px;
+
+  /* --- Capas ------------------------------------------------ */
+  --z-river: 0;
+  --z-flora: 1;
+  --z-content: 2;
+  --z-nav: 20;
+  --z-drawer: 50;
+}

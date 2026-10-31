@@ -1,0 +1,156 @@
+/* ============================================================
+   Sitio: escenario del río, hero, secciones
+   ============================================================ */
+
+/* --- Navegación ---------------------------------------------- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-nav);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--s-4) var(--gutter);
+  transition: background var(--dur-base) var(--ease-soft), box-shadow var(--dur-base) var(--ease-soft);
+}
+.nav.is-scrolled { background: color-mix(in srgb, var(--sand-50) 86%, transparent); backdrop-filter: blur(10px); box-shadow: 0 1px 0 var(--line); }
+.nav__brand img { height: 36px; width: auto; }
+.nav__links { display: flex; gap: var(--s-5); }
+.nav__links a {
+  font-size: var(--fs-2xs); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--text-soft);
+  padding-bottom: .2rem; border-bottom: 1px solid transparent;
+  transition: color var(--dur-fast), border-color var(--dur-fast);
+}
+.nav__links a:hover, .nav__links a.is-current { color: var(--accent-deep); border-color: var(--green-500); }
+@media (max-width: 760px) { .nav__links { display: none; } }
+
+/* --- Escenario del río -------------------------------------- */
+.stage { position: relative; isolation: isolate; }
+.river {
+  position: absolute; inset: 0; z-index: var(--z-river);
+  width: 100%; height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+.river path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.river__bank  { stroke: var(--river-sand); stroke-width: 54; opacity: .95; }
+.river__water { stroke: var(--river-200); stroke-width: 26; }
+.river__line  { stroke: var(--river-300); stroke-width: 5;  opacity: .8; }
+.river__mask  { stroke: #fff; stroke-width: 30; }
+.river__glint { stroke: #fff; stroke-width: 2; opacity: .55; stroke-dasharray: 3 26; animation: glint 9s linear infinite; }
+@keyframes glint { to { stroke-dashoffset: -290; } }
+@media (max-width: 760px) {
+  .river__bank { stroke-width: 38; } .river__water { stroke-width: 18; } .river__line { stroke-width: 4; }
+}
+
+.flora {
+  position: absolute; inset: 0; z-index: var(--z-flora);
+  pointer-events: none; overflow: hidden;
+}
+.flora__item {
+  position: absolute; left: 0; top: 0;
+  opacity: 0;
+  will-change: transform, opacity;
+  mix-blend-mode: multiply;
+}
+.flora__item img { width: 100%; height: auto; }
+
+.section-wrap { position: relative; z-index: var(--z-content); }
+
+/* --- Hero (estilo invitación) ------------------------------- */
+.hero {
+  min-height: 100svh;
+  display: grid; place-items: center;
+  padding: calc(var(--s-10)) var(--gutter) var(--s-9);
+  position: relative;
+  overflow: hidden;
+}
+.hero__wash {
+  position: absolute; z-index: 0; pointer-events: none;
+  width: min(70vw, 820px); aspect-ratio: 915 / 650;
+  background: url("../assets/img/acuarela-rio.png") center / contain no-repeat;
+  opacity: .55; mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 70%);
+          mask-image: radial-gradient(ellipse at center, #000 20%, transparent 70%);
+}
+.hero__wash--a { right: -14vw; top: -6vh; transform: rotate(8deg); }
+.hero__wash--b { left: -18vw; bottom: -10vh; transform: rotate(-12deg) scaleX(-1); opacity: .4; }
+.hero__card {
+  position: relative; z-index: 1;
+  width: min(100%, 46rem);
+  text-align: center;
+  padding: clamp(2.5rem, 7vw, 5rem) clamp(1.5rem, 6vw, 4.5rem);
+  background: var(--surface);
+  box-shadow: var(--shadow-paper);
+  border-radius: 6px;
+}
+.hero__card::after {  /* textura de papel de algodón */
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: .35; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.012 .02' numOctaves='2' seed='7'/><feColorMatrix values='0 0 0 0 .6 0 0 0 0 .56 0 0 0 0 .45 0 0 0 .18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+.hero__names { margin: var(--s-5) 0; }
+.hero__names .display { display: block; }
+.hero__amp { display: block; margin: .25rem 0; }
+.hero__place { margin-top: var(--s-6); color: var(--text-soft); }
+.hero__place strong { font-weight: 400; color: var(--accent-deep); }
+.hero__mono { position: absolute; right: clamp(1rem, 4vw, 2.5rem); bottom: clamp(1rem, 4vw, 2.5rem); width: clamp(44px, 6vw, 64px); opacity: .9; }
+.hero__count { margin-top: var(--s-6); }
+.hero__cue {
+  position: absolute; left: 50%; bottom: var(--s-6); transform: translateX(-50%); z-index: 1;
+  display: flex; flex-direction: column; align-items: center; gap: .5rem;
+  color: var(--text-muted); font-size: var(--fs-2xs); letter-spacing: var(--tracking-wider); text-transform: uppercase;
+}
+.hero__cue svg { width: 14px; height: 24px; animation: cue 2.6s var(--ease-soft) infinite; }
+@keyframes cue { 0%, 100% { transform: translateY(0); opacity: .5 } 50% { transform: translateY(6px); opacity: 1 } }
+
+/* --- Secciones a lo largo del río ---------------------------- */
+.section {
+  position: relative;
+  padding: var(--s-11) var(--gutter);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, var(--measure)) minmax(0, 1fr);
+}
+.section__inner { grid-column: 2; }
+@media (min-width: 900px) {
+  .section { grid-template-columns: repeat(12, 1fr); column-gap: var(--s-4); width: min(100%, var(--container)); margin-inline: auto; }
+  .section--left  .section__inner { grid-column: 2 / span 6; }
+  .section--right .section__inner { grid-column: 6 / span 6; }
+  .section--center .section__inner { grid-column: 4 / span 6; text-align: center; }
+  .section--center .leaf-rule { max-width: 16rem; margin-inline: auto; }
+}
+.section__head { margin-bottom: var(--s-6); }
+.section__head .display { margin: .5rem 0 .75rem; }
+.section__head .script { margin-bottom: .25rem; }
+.section + .section { padding-top: var(--s-10); }
+
+/* contenido con un velo de arena para que el río no compita con el texto */
+.veil { position: relative; }
+.veil::before {
+  content: ""; position: absolute; inset: -2rem -1.5rem; z-index: -1; border-radius: 40% 60% 55% 45% / 50% 40% 60% 50%;
+  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--sand-50) 92%, transparent) 55%, transparent 75%);
+}
+
+/* itinerario: dos días */
+.days { display: grid; gap: var(--s-7); }
+.day { padding: clamp(1.5rem, 4vw, 2.5rem); }
+.day__date { display: flex; align-items: baseline; gap: var(--s-3); flex-wrap: wrap; margin-bottom: var(--s-4); }
+.day__date .display { font-size: var(--fs-lg); }
+.day__what { margin-top: var(--s-5); padding-top: var(--s-5); border-top: 1px dashed var(--line-strong); }
+
+/* ruta: pasos de transporte */
+.route { display: grid; gap: var(--s-4); counter-reset: step; }
+.route__step { display: grid; grid-template-columns: 2.25rem 1fr; gap: var(--s-3); align-items: start; }
+.route__step::before {
+  counter-increment: step; content: counter(step, decimal-leading-zero);
+  font-size: var(--fs-xs); letter-spacing: var(--tracking-wide); color: var(--accent);
+  padding-top: .35rem; border-top: 1px solid var(--green-500);
+}
+
+/* RSVP */
+.rsvp { text-align: center; }
+.rsvp__actions { display: flex; flex-wrap: wrap; gap: var(--s-3); justify-content: center; margin-top: var(--s-6); }
+
+/* --- Pie ------------------------------------------------------- */
+.footer {
+  position: relative; z-index: var(--z-content);
+  padding: var(--s-10) var(--gutter) var(--s-8);
+  text-align: center; color: var(--text-muted);
+}
+.footer img { width: 72px; margin: 0 auto var(--s-4); opacity: .9; }
+.footer__sea { height: 180px; margin-top: var(--s-8); background: linear-gradient(to bottom, transparent, var(--river-100)); -webkit-mask-image: linear-gradient(to bottom, transparent, #000); mask-image: linear-gradient(to bottom, transparent, #000); }

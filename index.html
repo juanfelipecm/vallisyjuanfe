@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Valeria & Juan Felipe · 13 de febrero de 2027 · Palomino</title>
+  <meta name="description" content="Valeria y Juan Felipe te invitan a celebrar su matrimonio en Palomino, Guajira, Colombia. 12 y 13 de febrero de 2027.">
+  <link rel="icon" href="assets/img/logo-vjf.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Parisienne&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M4 20c0-9 5-15 16-16-1 11-7 16-16 16Z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M4 20c4-5 8-9 13-12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-down" viewBox="0 0 14 24"><path d="M7 1v21M1 16l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 1a5 5 0 0 1-2.9-2.9l1-1-1-2L9 8.5Z" fill="currentColor"/></symbol>
+</svg>
+
+<nav class="nav" aria-label="Secciones">
+  <a class="nav__brand" href="#inicio" aria-label="Inicio"><img src="assets/img/logo-vjf.png" alt="Monograma V y JF"></a>
+  <div class="nav__links">
+    <a href="#itinerario">Itinerario</a>
+    <a href="#llegar">Cómo llegar</a>
+    <a href="#hospedaje">Hospedaje</a>
+    <a href="#vestir">Cómo vestirse</a>
+    <a href="#recomendaciones">Recomendaciones</a>
+    <a href="#rsvp">Confirmar</a>
+  </div>
+</nav>
+
+<main class="stage" id="inicio">
+  <!-- El río: se dibuja con JS siguiendo las secciones -->
+  <svg class="river" id="river" aria-hidden="true" preserveAspectRatio="none">
+    <path class="river__bank"/>
+    <path class="river__water"/>
+    <path class="river__line"/>
+    <mask id="river-reveal" maskUnits="userSpaceOnUse"><path class="river__mask"/></mask>
+    <g mask="url(#river-reveal)"><path class="river__glint"/></g>
+  </svg>
+  <div class="flora" id="flora" aria-hidden="true"></div>
+
+  <div class="section-wrap">
+
+    <!-- ===================== HERO ===================== -->
+    <header class="hero">
+      <div class="hero__wash hero__wash--a"></div>
+      <div class="hero__wash hero__wash--b"></div>
+      <div class="hero__card reveal is-visible">
+        <p class="eyebrow eyebrow--accent">Los invitamos a celebrar nuestro matrimonio</p>
+        <div class="hero__names">
+          <h1 class="display display--names">Valeria Ortiz Jaramillo</h1>
+          <span class="script hero__amp" aria-hidden="true">&amp;</span>
+          <span class="sr-only">y</span>
+          <h1 class="display display--names">Juan Felipe Castillo Madriñán</h1>
+        </div>
+        <p class="hero__place mono">
+          <strong>Palomino, Guajira, Colombia</strong><br>
+          12 y 13 de febrero 2027
+        </p>
+        <p class="hero__count"><span class="chip chip--river" id="countdown">Faltan … días</span></p>
+        <img class="hero__mono" src="assets/img/logo-vjf.png" alt="">
+      </div>
+      <a class="hero__cue" href="#itinerario">Sigue el río <svg><use href="#i-down"/></svg></a>
+    </header>
+
+    <!-- ===================== ITINERARIO ===================== -->
+    <section class="section section--left" id="itinerario" data-river="left">
+      <div class="section__inner">
+        <div class="section__head reveal">
+          <p class="eyebrow">Itinerario</p>
+          <h2 class="display display--section">Dos días junto al río</h2>
+          <p class="lead">Un viernes para mojarse y un sábado para celebrar.</p>
+        </div>
+
+        <div class="days">
+          <article class="paper day reveal" style="--i:1">
+            <p class="script script--sm">Antes del sí</p>
+            <div class="day__date">
+              <h3 class="display">Viernes, 12 de febrero</h3>
+              <span class="chip chip--sand">1:00 p.m. – 6:00 p.m.</span>
+            </div>
+            <h4 class="display display--sub">Tubbing por el río Don Diego</h4>
+            <p class="soft">Te invitamos a relajarte por el río y la naturaleza en un plan que nos encanta.</p>
+            <p>Entre monos aulladores y garzas de colores, primos, tíos y amigos, ceibas y árboles caminantes recorreremos lentamente el río en neumáticos hasta llegar al lugar donde se encuentra el río con el mar. Disfrutaremos luego una tarde de playa con música, empanadas y cerveza.</p>
+            <dl class="facts">
+              <dt>Punto de encuentro</dt>
+              <dd>Bomba de gasolina La Sierrita, Palomino · <a class="link" href="https://www.google.com/maps/search/Bomba+La+Sierrita+Palomino" target="_blank" rel="noopener">ver en Google Maps</a></dd>
+              <dt>Detalles</dt>
+              <dd>Saldremos todos juntos en un bus hasta el río Don Diego. Después, una caminata suave de unos 25 minutos por la Sierra hasta una playa escondida donde arrancaremos el descenso por el río encima de un neumático.</dd>
+            </dl>
+            <div class="day__what">
+              <p class="eyebrow eyebrow--accent">¿Qué llevar?</p>
+              <p>Vestido de baño, sombrero y una camiseta de manga larga que se pueda mojar para protegerte del sol. La pinta linda es el sábado, hoy se trata de protegernos. Tendremos una lancha para dejar algunas cosas y que no se mojen durante el recorrido.</p>
+            </div>
+          </article>
+
+          <article class="paper day reveal" style="--i:2">
+            <p class="script script--sm">El matrimonio</p>
+            <div class="day__date">
+              <h3 class="display">Sábado, 13 de febrero</h3>
+              <span class="chip chip--sand">4:00 p.m. – 2:00 a.m.</span>
+            </div>
+            <p class="lead">Inmersos en el corazón de la Sierra, la naturaleza será nuestro templo. En un lugar mágico lleno de vida y energía, será el río el que nos guíe a celebrar nuestro amor.</p>
+            <dl class="facts">
+              <dt>Lugar</dt>
+              <dd>Hotel One Santuario, frente al río Palomino</dd>
+              <dt>Punto de encuentro</dt>
+              <dd>Bomba de gasolina La Sierrita. Desde la bomba ofreceremos transporte hasta el lugar de la ceremonia. Son treinta minutos, así que planea con tiempo.</dd>
+            </dl>
+            <div class="day__what">
+              <p>Frente al río Palomino, en una playa de río, entre guaduas y con la selva de testigo, se llevará a cabo la ceremonia a las 4:00 p.m.</p>
+              <p class="small muted">El hotel está a 2 kilómetros de la principal por una carretera de difícil acceso. Para quienes requieran transporte, el equipo de logística se comunicará con ustedes para coordinar las camionetas desde la Bomba La Sierrita. Este mismo transporte los regresará en la noche a su hotel.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CÓMO LLEGAR ===================== -->
+    <section class="section section--right" id="llegar" data-river="right">
+      <div class="section__inner veil">
+        <div class="section__head reveal">
+          <p class="eyebrow">Cómo llegar</p>
+          <h2 class="display display--section">Palomino, Guajira</h2>
+          <p class="lead">Donde la Sierra Nevada de Santa Marta baja hasta el mar.</p>
+        </div>
+        <div class="stack reveal" style="--i:1">
+          <p>Palomino es un pueblo pequeño en la costa de La Guajira, a unas dos horas de Santa Marta por la Troncal del Caribe. Aquí el río baja de la Sierra entre guaduas y ceibas, y termina en una playa larga y tranquila. <span class="muted">(Texto de introducción pendiente de los novios.)</span></p>
+          <p class="cluster">
+            <button class="btn" data-drawer-open="drawer-mapa">Ver mapa</button>
+            <a class="btn btn--ghost" href="https://www.google.com/maps/place/Palomino,+La+Guajira" target="_blank" rel="noopener">Abrir en Google Maps <svg><use href="#i-ext"/></svg></a>
+          </p>
+        </div>
+        <div class="reveal" style="--i:2; margin-top: var(--s-7)">
+          <p class="eyebrow eyebrow--accent">Transporte recomendado</p>
+          <ol class="route" style="margin-top: var(--s-4)">
+            <li class="route__step"><div><b class="display display--sub">Vuela a Santa Marta</b><p class="small soft">Aeropuerto Simón Bolívar (SMR). Desde allí, Palomino queda a unas dos horas por carretera.</p></div></li>
+            <li class="route__step"><div><b class="display display--sub">Llega hasta Palomino</b><p class="small soft">En carro particular, transporte privado o bus por la Troncal del Caribe. Te recomendamos llegar el jueves 11 o el viernes 12 temprano.</p></div></li>
+            <li class="route__step"><div><b class="display display--sub">Encuéntranos en la Bomba La Sierrita</b><p class="small soft">Es nuestro punto de encuentro los dos días. Desde allí salen el bus del tubbing y las camionetas a la ceremonia.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOSPEDAJE ===================== -->
+    <section class="section section--left" id="hospedaje" data-river="left">
+      <div class="section__inner veil">
+        <div class="section__head reveal">
+          <p class="eyebrow">Dónde hospedarse</p>
+          <h2 class="display display--section">Quédate en Palomino</h2>
+          <p class="lead">Hará tu logística, transporte y experiencia mucho más amable.</p>
+        </div>
+        <p class="reveal" style="--i:1">Palomino es un destino conocido por su oferta natural, espiritual y biodiversa. Cualquier hotel de la zona puede funcionarte. Algunos recomendados:</p>
+        <ul class="list-cards reveal" style="--i:2; margin-top: var(--s-5)">
+          <li class="list-card"><div><span class="list-card__title">Hotel Casa Coraje</span><p class="meta">Ubicación y enlace pendientes</p></div><a class="btn btn--ghost" href="#" aria-disabled="true">Ver <svg><use href="#i-ext"/></svg></a></li>
+          <li class="list-card"><div><span class="list-card__title">Hotel Naio</span><p class="meta">Ubicación y enlace pendientes</p></div><a class="btn btn--ghost" href="#" aria-disabled="true">Ver <svg><use href="#i-ext"/></svg></a></li>
+          <li class="list-card"><div><span class="list-card__title">Hotel Pavo Real</span><p class="meta">Ubicación y enlace pendientes</p></div><a class="btn btn--ghost" href="#" aria-disabled="true">Ver <svg><use href="#i-ext"/></svg></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== CÓMO VESTIRSE ===================== -->
+    <section class="section section--right" id="vestir" data-river="right">
+      <div class="section__inner">
+        <div class="section__head reveal">
+          <p class="eyebrow">Cómo vestirse</p>
+          <h2 class="display display--section">Elegante, de río</h2>
+          <p class="lead">La ceremonia es sobre arena y piedritas, a la orilla del agua.</p>
+        </div>
+        <div class="dress">
+          <div class="dress__card reveal" style="--i:1">
+            <p class="script">Mujeres</p>
+            <p>Vestido largo y zapatos elegantes que sean aptos para caminar en terrenos inestables como arena y piedritas.</p>
+            <button class="btn" data-drawer-open="drawer-mujeres">Ver ideas</button>
+          </div>
+          <div class="dress__card reveal" style="--i:2">
+            <p class="script">Hombres</p>
+            <p>Guayabera blanca y pantalón beige.</p>
+            <button class="btn" data-drawer-open="drawer-hombres">Ver ideas</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RECOMENDACIONES ===================== -->
+    <section class="section section--center" id="recomendaciones" data-river="center">
+      <div class="section__inner veil">
+        <div class="section__head reveal">
+          <p class="eyebrow">Recomendaciones</p>
+          <h2 class="display display--section">Planes en Palomino</h2>
+        </div>
+        <div class="leaf-rule reveal" style="--i:1"><svg><use href="#i-leaf"/></svg></div>
+        <p class="reveal" style="--i:2; margin-top: var(--s-5)">Cuando se acerque la fecha te recomendaremos planes, restaurantes y actividades para hacer en tu visita a Palomino.</p>
+      </div>
+    </section>
+
+    <!-- ===================== RSVP ===================== -->
+    <section class="section section--center" id="rsvp" data-river="center">
+      <div class="section__inner rsvp veil">
+        <div class="reveal">
+          <p class="script">Confirma tu asistencia</p>
+          <h2 class="display display--section" style="margin-top:.5rem">Queremos saber que vienes</h2>
+          <p class="lead" style="margin-top: var(--s-4)">Escríbenos por WhatsApp o llámanos. Nos ayuda muchísimo saberlo con tiempo.</p>
+        </div>
+        <div class="rsvp__actions reveal" style="--i:1">
+          <!-- TODO: reemplazar 57XXXXXXXXXX por el número real -->
+          <a class="btn btn--solid" href="https://wa.me/57XXXXXXXXXX?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20matrimonio%20de%20Valeria%20y%20Juan%20Felipe" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg> Confirmar por WhatsApp</a>
+          <a class="btn" href="tel:+57XXXXXXXXXX">Llamar</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <img src="assets/img/logo-vjf.png" alt="Monograma V y JF">
+  <p class="eyebrow">Valeria &amp; Juan Felipe · 13 · 02 · 2027</p>
+  <p class="meta">Palomino, Guajira, Colombia</p>
+  <div class="footer__sea" aria-hidden="true"></div>
+</footer>
+
+<!-- ===================== DRAWERS ===================== -->
+<div class="drawer-backdrop" data-drawer-close></div>
+
+<aside class="drawer" id="drawer-mapa" aria-hidden="true" aria-labelledby="drawer-mapa-title">
+  <div class="drawer__head">
+    <div><p class="eyebrow">Mapa</p><h3 class="display display--sub" id="drawer-mapa-title">Palomino y alrededores</h3></div>
+    <button class="drawer__close" data-drawer-close aria-label="Cerrar"><svg><use href="#i-close"/></svg></button>
+  </div>
+  <div class="drawer__body stack">
+    <iframe class="map-frame" title="Mapa de Palomino" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Palomino,+La+Guajira,+Colombia&z=13&output=embed"></iframe>
+    <dl class="facts">
+      <dt>Encuentro</dt><dd>Bomba de gasolina La Sierrita, sobre la Troncal, en Palomino.</dd>
+      <dt>Ceremonia</dt><dd>Hotel One Santuario, a 2 km de la principal, frente al río Palomino.</dd>
+      <dt>Tubbing</dt><dd>Río Don Diego, a unos minutos en bus desde la bomba.</dd>
+    </dl>
+    <a class="btn" href="https://www.google.com/maps/place/Palomino,+La+Guajira" target="_blank" rel="noopener">Abrir en Google Maps <svg><use href="#i-ext"/></svg></a>
+  </div>
+</aside>
+
+<aside class="drawer" id="drawer-mujeres" aria-hidden="true" aria-labelledby="drawer-mujeres-title">
+  <div class="drawer__head">
+    <div><p class="eyebrow">Cómo vestirse</p><h3 class="display display--sub" id="drawer-mujeres-title">Ideas para ellas</h3></div>
+    <button class="drawer__close" data-drawer-close aria-label="Cerrar"><svg><use href="#i-close"/></svg></button>
+  </div>
+  <div class="drawer__body stack">
+    <p class="soft">Vestido largo, telas livianas, colores que convivan con la selva y la arena. Zapatos elegantes pero firmes: caminaremos sobre arena y piedritas.</p>
+    <p class="cluster"><span class="chip">Vestido largo</span><span class="chip">Telas livianas</span><span class="chip chip--sand">Suela plana o bloque</span></p>
+    <!-- Reemplaza cada placeholder por <img src="assets/img/vestir/..."> -->
+    <div class="inspo">
+      <div class="inspo__item">Referencia 1</div>
+      <div class="inspo__item">Referencia 2</div>
+      <div class="inspo__item">Referencia 3</div>
+      <div class="inspo__item">Referencia 4</div>
+      <div class="inspo__item">Referencia 5</div>
+    </div>
+  </div>
+</aside>
+
+<aside class="drawer" id="drawer-hombres" aria-hidden="true" aria-labelledby="drawer-hombres-title">
+  <div class="drawer__head">
+    <div><p class="eyebrow">Cómo vestirse</p><h3 class="display display--sub" id="drawer-hombres-title">Ideas para ellos</h3></div>
+    <button class="drawer__close" data-drawer-close aria-label="Cerrar"><svg><use href="#i-close"/></svg></button>
+  </div>
+  <div class="drawer__body stack">
+    <p class="soft">Guayabera blanca y pantalón beige. Lino o algodón, zapato cerrado cómodo. El sombrero es bienvenido.</p>
+    <p class="cluster"><span class="chip">Guayabera blanca</span><span class="chip">Pantalón beige</span><span class="chip chip--sand">Lino</span></p>
+    <div class="inspo">
+      <div class="inspo__item">Referencia 1</div>
+      <div class="inspo__item">Referencia 2</div>
+      <div class="inspo__item">Referencia 3</div>
+      <div class="inspo__item">Referencia 4</div>
+    </div>
+  </div>
+</aside>
+
+<script src="js/river.js" defer></script>
+<script src="js/drawers.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

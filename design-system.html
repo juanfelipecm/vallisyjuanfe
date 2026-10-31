@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design system · V & JF</title>
+  <link rel="icon" href="assets/img/logo-vjf.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Parisienne&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .ds { padding: var(--s-8) 0 var(--s-11); }
+    .ds-head { padding: var(--s-9) 0 var(--s-8); border-bottom: 1px solid var(--line); margin-bottom: var(--s-8); }
+    .ds-section { padding: var(--s-7) 0; border-bottom: 1px solid var(--line); }
+    .ds-section > .eyebrow { margin-bottom: var(--s-2); }
+    .ds-section > .display { margin-bottom: var(--s-5); }
+    .ds-grid { display: grid; gap: var(--s-4); grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); }
+    .ds-two { display: grid; gap: var(--s-6); grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); align-items: start; }
+    .ds-note { font-size: var(--fs-sm); color: var(--text-muted); max-width: var(--measure); }
+    .ds-sample { padding: var(--s-5); border: 1px dashed var(--line-strong); border-radius: var(--r-md); }
+    .type-row { display: grid; grid-template-columns: 9rem 1fr; gap: var(--s-4); align-items: baseline; padding: var(--s-3) 0; border-bottom: 1px dashed var(--line); }
+    .type-row .meta { font-size: var(--fs-2xs); }
+    .sprite-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr)); gap: var(--s-4); align-items: end; }
+    .sprite-grid figure { margin: 0; text-align: center; }
+    .sprite-grid img { mix-blend-mode: multiply; margin: 0 auto .5rem; }
+    .sprite-grid figcaption { font-size: var(--fs-2xs); color: var(--text-muted); letter-spacing: .08em; }
+    .river-sample { width: 100%; height: 160px; }
+    .river-sample path { fill: none; stroke-linecap: round; }
+    .space-row { display: flex; align-items: flex-end; gap: var(--s-3); flex-wrap: wrap; }
+    .space-row div { background: var(--green-200); border-radius: 2px; }
+    .space-row span { display: block; font-size: var(--fs-2xs); color: var(--text-muted); margin-top: .35rem; }
+    .motion-demo { display: flex; gap: var(--s-4); flex-wrap: wrap; }
+    .motion-demo button { padding: var(--s-4) var(--s-5); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); text-align: left; }
+    .motion-demo i { display: block; width: 2rem; height: 2rem; border-radius: var(--r-blob); background: var(--green-400); margin-bottom: .75rem; transition: transform var(--d) var(--e); }
+    .motion-demo button:hover i { transform: translateX(3rem) rotate(40deg); }
+    .layout-diagram { border: 1px solid var(--line); border-radius: var(--r-md); background: var(--sand-0); }
+    .blob { width: 7rem; height: 7rem; border-radius: var(--r-blob); background: var(--green-300); }
+  </style>
+</head>
+<body>
+<div class="container ds">
+
+  <header class="ds-head">
+    <p class="eyebrow eyebrow--accent">Design system · v0.1</p>
+    <h1 class="display display--hero">Valeria <span class="script" style="font-size:.7em">&amp;</span> Juan Felipe</h1>
+    <p class="lead measure" style="margin-top: var(--s-4)">Un universo visual para una boda a la orilla del río Palomino, en los valles de la Sierra Nevada de Santa Marta. Papel de algodón, arena suave, verdes frondosos de acuarela y un río que recorre todo.</p>
+    <p class="cluster" style="margin-top: var(--s-5)"><a class="btn" href="index.html">Ver el sitio</a><span class="chip chip--sand">Tokens en css/tokens.css</span></p>
+  </header>
+
+  <!-- ================= PRINCIPIOS ================= -->
+  <section class="ds-section">
+    <p class="eyebrow">01</p>
+    <h2 class="display display--section">Principios</h2>
+    <div class="ds-two">
+      <div class="stack">
+        <p><b class="display display--sub">Papel, no pantalla.</b><br><span class="soft">Fondos de arena, sombras de papel, texturas de algodón. Nada blanco puro.</span></p>
+        <p><b class="display display--sub">El río guía.</b><br><span class="soft">Un solo trazo recorre la página de arriba abajo. El contenido se acomoda a sus orillas, alternando de lado.</span></p>
+      </div>
+      <div class="stack">
+        <p><b class="display display--sub">Todo florece despacio.</b><br><span class="soft">Las cosas aparecen, no saltan. Duraciones largas, curvas suaves, nunca rebotes.</span></p>
+        <p><b class="display display--sub">Tres voces tipográficas.</b><br><span class="soft">Didona para los nombres, máquina de escribir para la información, caligrafía para los susurros.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PALETA ================= -->
+  <section class="ds-section">
+    <p class="eyebrow">02</p>
+    <h2 class="display display--section">Paleta</h2>
+    <p class="ds-note" style="margin-bottom: var(--s-5)">Muestreada de los materiales reales: las brochas del moodboard, el verde del logo, el papel de la invitación y las copas de la acuarela.</p>
+
+    <p class="eyebrow eyebrow--accent" style="margin: var(--s-5) 0 var(--s-3)">Arena · fondos y papel</p>
+    <div class="ds-grid">
+      <div class="swatch"><div class="swatch__color" style="background:var(--sand-0)"></div><div class="swatch__meta"><b>sand-0</b><span>#FBF7EF · papel, tarjetas</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--sand-50)"></div><div class="swatch__meta"><b>sand-50</b><span>#F4EDE0 · fondo de página</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--sand-100)"></div><div class="swatch__meta"><b>sand-100</b><span>#ECE2CF · sobre</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--sand-200)"></div><div class="swatch__meta"><b>sand-200</b><span>#DECFB4 · bordes</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--sand-300)"></div><div class="swatch__meta"><b>sand-300</b><span>#C9AB8A · arena moodboard</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--cream)"></div><div class="swatch__meta"><b>cream</b><span>#ECD7BE · crema moodboard</span></div></div>
+    </div>
+
+    <p class="eyebrow eyebrow--accent" style="margin: var(--s-6) 0 var(--s-3)">Verdes · selva</p>
+    <div class="ds-grid">
+      <div class="swatch"><div class="swatch__color" style="background:var(--green-950)"></div><div class="swatch__meta"><b>green-950</b><span>#273D28 · títulos, sobre</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--green-800)"></div><div class="swatch__meta"><b>green-800</b><span>#3A4A33</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--green-700)"></div><div class="swatch__meta"><b>green-700</b><span>#4C5840 · logo, acento</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--green-600)"></div><div class="swatch__meta"><b>green-600</b><span>#5E6E4C</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--green-500)"></div><div class="swatch__meta"><b>green-500</b><span>#7C9A6B · líneas, iconos</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--green-400)"></div><div class="swatch__meta"><b>green-400</b><span>#96BD8C</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--green-300)"></div><div class="swatch__meta"><b>green-300</b><span>#B4D8B4 · copas</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--green-200)"></div><div class="swatch__meta"><b>green-200</b><span>#CCE4CC · copas claras</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--green-100)"></div><div class="swatch__meta"><b>green-100</b><span>#E4F0D8 · chips, velos</span></div></div>
+    </div>
+
+    <p class="eyebrow eyebrow--accent" style="margin: var(--s-6) 0 var(--s-3)">Río y acentos</p>
+    <div class="ds-grid">
+      <div class="swatch"><div class="swatch__color" style="background:var(--river-300)"></div><div class="swatch__meta"><b>river-300</b><span>#9CC3CC · línea de agua</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--river-200)"></div><div class="swatch__meta"><b>river-200</b><span>#BFDDE3 · cauce</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--river-100)"></div><div class="swatch__meta"><b>river-100</b><span>#DCEDEF · brillo</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--river-sand)"></div><div class="swatch__meta"><b>river-sand</b><span>#F3E9C4 · orilla</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--olive)"></div><div class="swatch__meta"><b>olive</b><span>#817633 · acento</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--terracotta)"></div><div class="swatch__meta"><b>terracotta</b><span>#AF5137 · muy poco: urgencias, RSVP</span></div></div>
+    </div>
+
+    <p class="eyebrow eyebrow--accent" style="margin: var(--s-6) 0 var(--s-3)">Tinta</p>
+    <div class="ds-grid">
+      <div class="swatch"><div class="swatch__color" style="background:var(--ink)"></div><div class="swatch__meta"><b>ink</b><span>#2F3A2B · texto</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--ink-soft)"></div><div class="swatch__meta"><b>ink-soft</b><span>#545844 · texto de la invitación</span></div></div>
+      <div class="swatch"><div class="swatch__color" style="background:var(--ink-muted)"></div><div class="swatch__meta"><b>ink-muted</b><span>#7D816E · meta, eyebrows</span></div></div>
+    </div>
+  </section>
+
+  <!-- ================= TIPOGRAFÍA ================= -->
+  <section class="ds-section">
+    <p class="eyebrow">03</p>
+    <h2 class="display display--section">Tipografía</h2>
+    <div class="ds-two">
+      <div class="ds-sample stack">
+        <p class="eyebrow">Display · Bodoni Moda</p>
+        <p class="display display--names">Valeria Ortiz Jaramillo</p>
+        <p class="ds-note">La misma didona de alto contraste del monograma. Para nombres, títulos de sección y subtítulos. Nunca en mayúsculas sostenidas, nunca en negrita.</p>
+      </div>
+      <div class="ds-sample stack">
+        <p class="eyebrow">Información · Courier Prime</p>
+        <p class="mono">Palomino, Guajira, Colombia<br>12 y 13 de febrero 2027</p>
+        <p class="ds-note">La máquina de escribir de la invitación. Cuerpo de texto, fechas, horas, etiquetas y botones. Las etiquetas van en versalitas espaciadas.</p>
+      </div>
+      <div class="ds-sample stack">
+        <p class="eyebrow">Susurro · Parisienne</p>
+        <p class="script">Reserva nuestra fecha</p>
+        <p class="ds-note">La caligrafía del save the date. Solo para frases cortas que anteceden un título, el "&amp;" y nombres de momentos. Nunca para información.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: var(--s-6)">
+      <div class="type-row"><span class="meta">display--hero · 3xl</span><span class="display display--hero">Palomino</span></div>
+      <div class="type-row"><span class="meta">display--names · 2xl</span><span class="display display--names">Juan Felipe Castillo</span></div>
+      <div class="type-row"><span class="meta">display--section · xl</span><span class="display display--section">Dos días junto al río</span></div>
+      <div class="type-row"><span class="meta">display--sub · lg</span><span class="display display--sub">Tubbing por el río Don Diego</span></div>
+      <div class="type-row"><span class="meta">script</span><span class="script">Antes del sí</span></div>
+      <div class="type-row"><span class="meta">lead · md</span><span class="lead">Un viernes para mojarse y un sábado para celebrar.</span></div>
+      <div class="type-row"><span class="meta">body · base</span><span>Entre monos aulladores y garzas de colores recorreremos lentamente el río.</span></div>
+      <div class="type-row"><span class="meta">meta · sm</span><span class="meta">Ubicación y enlace pendientes</span></div>
+      <div class="type-row"><span class="meta">eyebrow · xs</span><span class="eyebrow">Punto de encuentro</span></div>
+    </div>
+  </section>
+
+  <!-- ================= UNIVERSO GRÁFICO ================= -->
+  <section class="ds-section">
+    <p class="eyebrow">04</p>
+    <h2 class="display display--section">Universo gráfico</h2>
+
+    <div class="ds-two">
+      <div class="stack">
+        <p class="eyebrow eyebrow--accent">Monograma</p>
+        <div class="ds-sample" style="display:flex; gap: var(--s-6); align-items:center; flex-wrap: wrap">
+          <img src="assets/img/logo-vjf.png" alt="Monograma VJF" style="width: 120px">
+          <img src="assets/img/logo-vjf.png" alt="" style="width: 56px">
+          <img src="assets/img/logo-vjf.png" alt="" style="width: 32px">
+        </div>
+        <p class="ds-note">Siempre en green-700 sobre arena. Mínimo 32 px. Nunca sobre la acuarela directamente: déjale aire.</p>
+      </div>
+      <div class="stack">
+        <p class="eyebrow eyebrow--accent">La acuarela madre</p>
+        <div class="ds-sample" style="background: var(--sand-0)">
+          <img src="assets/img/acuarela-rio.png" alt="Acuarela del río entre la selva" style="mix-blend-mode: multiply">
+        </div>
+        <p class="ds-note">De aquí sale todo: las copas, las palmas, la orilla amarilla y el azul del agua. Se usa completa en el hero con una máscara radial y en modo multiplicar, para que parezca pintada sobre el papel.</p>
+      </div>
+    </div>
+
+    <p class="eyebrow eyebrow--accent" style="margin: var(--s-7) 0 var(--s-3)">Flora · sprites recortados de la acuarela</p>
+    <p class="ds-note" style="margin-bottom: var(--s-4)">Bordes difuminados, fondo transparente, modo multiplicar. Florecen junto al río al hacer scroll y se desvanecen al salir. Rotarlos libremente: son vistas cenitales.</p>
+    <div class="sprite-grid">
+      <figure><img src="assets/img/sprites/copa-01.png" alt="" style="width:7rem"><figcaption>copa-01</figcaption></figure>
+      <figure><img src="assets/img/sprites/copa-02.png" alt="" style="width:7rem"><figcaption>copa-02</figcaption></figure>
+      <figure><img src="assets/img/sprites/copa-03.png" alt="" style="width:7rem"><figcaption>copa-03</figcaption></figure>
+      <figure><img src="assets/img/sprites/copa-04.png" alt="" style="width:4rem"><figcaption>copa-04</figcaption></figure>
+      <figure><img src="assets/img/sprites/copa-05.png" alt="" style="width:7rem"><figcaption>copa-05</figcaption></figure>
+      <figure><img src="assets/img/sprites/copa-06.png" alt="" style="width:6rem"><figcaption>copa-06</figcaption></figure>
+      <figure><img src="assets/img/sprites/palma-01.png" alt="" style="width:4rem"><figcaption>palma-01</figcaption></figure>
+      <figure><img src="assets/img/sprites/palma-02.png" alt="" style="width:4rem"><figcaption>palma-02</figcaption></figure>
+      <figure><img src="assets/img/sprites/palma-03.png" alt="" style="width:4rem"><figcaption>palma-03</figcaption></figure>
+      <figure><img src="assets/img/sprites/palma-04.png" alt="" style="width:4rem"><figcaption>palma-04</figcaption></figure>
+    </div>
+
+    <div class="ds-two" style="margin-top: var(--s-7)">
+      <div class="stack">
+        <p class="eyebrow eyebrow--accent">El río · tres trazos</p>
+        <div class="ds-sample" style="background: var(--sand-50)">
+          <svg class="river-sample" viewBox="0 0 600 160" aria-hidden="true">
+            <path d="M-10 60 C 120 60, 160 140, 300 110 S 480 20, 620 80" stroke="var(--river-sand)" stroke-width="44" opacity=".95"/>
+            <path d="M-10 60 C 120 60, 160 140, 300 110 S 480 20, 620 80" stroke="var(--river-200)" stroke-width="22"/>
+            <path d="M-10 60 C 120 60, 160 140, 300 110 S 480 20, 620 80" stroke="var(--river-300)" stroke-width="4" opacity=".8"/>
+            <path d="M-10 60 C 120 60, 160 140, 300 110 S 480 20, 620 80" stroke="#fff" stroke-width="2" opacity=".55" stroke-dasharray="3 26"/>
+          </svg>
+        </div>
+        <p class="ds-note">Orilla (river-sand, 54 px), cauce (river-200, 26 px) y línea de agua (river-300, 5 px) más un brillo punteado que se desplaza lentamente. Extremos redondeados. Se revela con <code>stroke-dashoffset</code> siguiendo el scroll con inercia.</p>
+      </div>
+      <div class="stack">
+        <p class="eyebrow eyebrow--accent">Formas y detalles</p>
+        <div class="ds-sample" style="display:flex; gap: var(--s-6); align-items:center; flex-wrap:wrap">
+          <div class="blob"></div>
+          <div class="leaf-rule" style="flex:1; min-width: 10rem"><svg><use href="#i-leaf"/></svg></div>
+          <ul class="timeline" style="min-width: 10rem"><li class="timeline__item"><p class="timeline__time">4:00 p.m.</p><p class="timeline__title">Ceremonia</p></li><li class="timeline__item"><p class="timeline__time">6:00 p.m.</p><p class="timeline__title">Brindis</p></li></ul>
+        </div>
+        <p class="ds-note">Piedras de río (radio orgánico <code>--r-blob</code>) para puntos y avatares. Hoja de línea fina para separadores. Línea de tiempo con piedritas verdes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMPONENTES ================= -->
+  <section class="ds-section">
+    <p class="eyebrow">05</p>
+    <h2 class="display display--section">Componentes</h2>
+
+    <div class="ds-two">
+      <div class="stack">
+        <p class="eyebrow eyebrow--accent">Botones</p>
+        <div class="ds-sample cluster">
+          <button class="btn">Ver mapa</button>
+          <button class="btn btn--solid">Confirmar</button>
+          <button class="btn btn--warm">Urgente</button>
+          <a class="btn btn--ghost" href="#">Abrir <svg><use href="#i-ext"/></svg></a>
+          <a class="link" href="#">enlace en texto</a>
+        </div>
+        <p class="eyebrow eyebrow--accent">Chips</p>
+        <div class="ds-sample cluster">
+          <span class="chip">Vestido largo</span>
+          <span class="chip chip--sand">1:00 p.m. – 6:00 p.m.</span>
+          <span class="chip chip--river">Faltan 470 días</span>
+          <span class="chip chip--outline">Pendiente</span>
+        </div>
+      </div>
+      <div class="stack">
+        <p class="eyebrow eyebrow--accent">Papel y datos</p>
+        <article class="paper stack">
+          <p class="script script--sm">Antes del sí</p>
+          <h3 class="display display--sub">Viernes, 12 de febrero</h3>
+          <dl class="facts">
+            <dt>Punto de encuentro</dt><dd>Bomba La Sierrita, Palomino</dd>
+            <dt>Hora</dt><dd>1:00 p.m.</dd>
+          </dl>
+        </article>
+        <ul class="list-cards">
+          <li class="list-card"><div><span class="list-card__title">Hotel Casa Coraje</span><p class="meta">Palomino</p></div><a class="btn btn--ghost" href="#">Ver <svg><use href="#i-ext"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ds-two" style="margin-top: var(--s-6)">
+      <div class="stack">
+        <p class="eyebrow eyebrow--accent">Drawer</p>
+        <div class="ds-sample cluster">
+          <button class="btn" data-drawer-open="ds-drawer">Abrir drawer de ejemplo</button>
+        </div>
+        <p class="ds-note">Entra desde la derecha en 1.6 s con <code>--ease-out</code>; el fondo se oscurece apenas y se desenfoca. El contenido interior aparece escalonado 350 ms después. Cierra con Esc, clic afuera o el botón.</p>
+      </div>
+      <div class="stack">
+        <p class="eyebrow eyebrow--accent">Reveal</p>
+        <div class="ds-sample stack">
+          <p class="reveal is-visible">Los bloques aparecen subiendo 28 px y fundiendo en 1.6 s.</p>
+          <p class="ds-note">Clase <code>.reveal</code> + <code>--i</code> para escalonar (120 ms por índice). Lo activa un IntersectionObserver al 15 % de visibilidad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MOVIMIENTO ================= -->
+  <section class="ds-section">
+    <p class="eyebrow">06</p>
+    <h2 class="display display--section">Movimiento</h2>
+    <p class="ds-note" style="margin-bottom: var(--s-5)">Pasa el cursor para sentir cada curva. Nada rebota. Lo lento es intencional: el río no tiene prisa.</p>
+    <div class="motion-demo">
+      <button style="--d: var(--dur-fast); --e: var(--ease-soft)"><i></i><span class="eyebrow">fast · 350 ms</span><br><span class="small">hover, botones</span></button>
+      <button style="--d: var(--dur-base); --e: var(--ease-soft)"><i></i><span class="eyebrow">base · 900 ms</span><br><span class="small">fundidos, nav</span></button>
+      <button style="--d: var(--dur-slow); --e: var(--ease-out)"><i></i><span class="eyebrow">slow · 1.6 s</span><br><span class="small">reveal, drawers</span></button>
+      <button style="--d: var(--dur-river); --e: var(--ease-river)"><i></i><span class="eyebrow">river · 2.4 s</span><br><span class="small">el río, la flora</span></button>
+    </div>
+    <p class="ds-note" style="margin-top: var(--s-5)">Con <code>prefers-reduced-motion</code> todo aparece de inmediato y el río se dibuja completo.</p>
+  </section>
+
+  <!-- ================= ESPACIO Y LAYOUT ================= -->
+  <section class="ds-section" style="border-bottom:0">
+    <p class="eyebrow">07</p>
+    <h2 class="display display--section">Espacio y layout</h2>
+    <div class="ds-two">
+      <div class="stack">
+        <p class="eyebrow eyebrow--accent">Escala de espacio</p>
+        <div class="space-row">
+          <div style="width:.25rem;height:.25rem"><span>1</span></div>
+          <div style="width:.5rem;height:.5rem"><span>2</span></div>
+          <div style="width:1rem;height:1rem"><span>4</span></div>
+          <div style="width:1.5rem;height:1.5rem"><span>5</span></div>
+          <div style="width:2rem;height:2rem"><span>6</span></div>
+          <div style="width:3rem;height:3rem"><span>7</span></div>
+          <div style="width:4rem;height:4rem"><span>8</span></div>
+          <div style="width:6rem;height:6rem"><span>9</span></div>
+        </div>
+        <p class="ds-note">Entre secciones: s-11 (12 rem). Dentro de una tarjeta: s-4 a s-6. Ancho de lectura: 34 rem.</p>
+      </div>
+      <div class="stack">
+        <p class="eyebrow eyebrow--accent">El contenido en las orillas</p>
+        <svg class="layout-diagram" viewBox="0 0 320 300" aria-hidden="true">
+          <path d="M160 0 C 160 40, 250 60, 250 100 S 70 160, 70 200 S 250 260, 250 300" fill="none" stroke="var(--river-200)" stroke-width="14" stroke-linecap="round"/>
+          <path d="M160 0 C 160 40, 250 60, 250 100 S 70 160, 70 200 S 250 260, 250 300" fill="none" stroke="var(--river-300)" stroke-width="3"/>
+          <rect x="30" y="70" width="130" height="60" rx="6" fill="var(--sand-0)" stroke="var(--line-strong)"/>
+          <rect x="160" y="170" width="130" height="60" rx="6" fill="var(--sand-0)" stroke="var(--line-strong)"/>
+          <text x="95" y="104" text-anchor="middle" font-family="Courier Prime" font-size="10" fill="var(--ink-muted)">itinerario</text>
+          <text x="225" y="204" text-anchor="middle" font-family="Courier Prime" font-size="10" fill="var(--ink-muted)">cómo llegar</text>
+        </svg>
+        <p class="ds-note">Cada sección declara <code>data-river="left|right|center"</code>: el contenido se pone de ese lado y el río curva hacia el otro. En móvil el río pasa detrás con un velo de arena.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M4 20c0-9 5-15 16-16-1 11-7 16-16 16Z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M4 20c4-5 8-9 13-12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<div class="drawer-backdrop" data-drawer-close></div>
+<aside class="drawer" id="ds-drawer" aria-hidden="true">
+  <div class="drawer__head">
+    <div><p class="eyebrow">Ejemplo</p><h3 class="display display--sub">Ideas para ellas</h3></div>
+    <button class="drawer__close" data-drawer-close aria-label="Cerrar"><svg><use href="#i-close"/></svg></button>
+  </div>
+  <div class="drawer__body stack">
+    <p class="soft">Vestido largo, telas livianas, zapatos firmes.</p>
+    <p class="cluster"><span class="chip">Vestido largo</span><span class="chip chip--sand">Suela plana</span></p>
+    <div class="inspo"><div class="inspo__item">Referencia 1</div><div class="inspo__item">Referencia 2</div><div class="inspo__item">Referencia 3</div></div>
+  </div>
+</aside>
+<script src="js/drawers.js" defer></script>
+</body>
+</html>
