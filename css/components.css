@@ -61,6 +61,17 @@
 .paper--sand { background: var(--surface-2); }
 .paper--torn { border-radius: var(--r-lg); }
 
+/* Filo interior, como un grabado (igual que la tarjeta del hero) */
+.paper, .dress__card, .list-card { --frame-inset: 10px; --frame-radius: var(--r-md); position: relative; }
+.paper--torn, .dress__card { --frame-radius: var(--r-lg); }
+.list-card { --frame-inset: 6px; }
+.paper::after, .dress__card::after, .list-card::after {
+  content: ""; position: absolute; inset: var(--frame-inset);
+  border: 1px solid var(--line);
+  border-radius: max(2px, calc(var(--frame-radius) - var(--frame-inset)));
+  pointer-events: none;
+}
+
 /* --- Separador con hoja ------------------------------------- */
 .leaf-rule {
   display: flex; align-items: center; gap: var(--s-4);
