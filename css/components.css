@@ -131,12 +131,14 @@
   background: var(--surface);
   box-shadow: var(--shadow-drawer);
   transform: translateX(104%);
-  transition: transform var(--dur-slow) var(--ease-out);
+  /* cerrado = oculto (no carga ni recibe foco); se oculta al terminar de salir */
+  visibility: hidden;
+  transition: transform var(--dur-slow) var(--ease-out), visibility 0s linear var(--dur-slow);
   display: flex; flex-direction: column;
   overflow: hidden;
 }
 .drawer--left { right: auto; left: 0; transform: translateX(-104%); box-shadow: 24px 0 64px -32px rgba(39,61,40,.35); }
-.drawer[aria-hidden="false"] { transform: translateX(0); }
+.drawer[aria-hidden="false"] { transform: translateX(0); visibility: visible; transition: transform var(--dur-slow) var(--ease-out), visibility 0s; }
 .drawer-backdrop.is-open { opacity: 1; pointer-events: auto; }
 .drawer__head {
   display: flex; align-items: center; justify-content: space-between;
