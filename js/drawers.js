@@ -9,7 +9,9 @@
   function show(id) {
     const d = document.getElementById(id);
     if (!d) return;
-    lastFocus = document.activeElement;
+    // Si ya hay un drawer abierto (p. ej. Matrimonio → Mujeres), se reemplaza.
+    if (open && open !== d) open.setAttribute('aria-hidden', 'true');
+    else lastFocus = document.activeElement;
     open = d;
     d.setAttribute('aria-hidden', 'false');
     backdrop && backdrop.classList.add('is-open');
