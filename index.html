@@ -49,8 +49,8 @@
 
     <!-- ===================== HERO ===================== -->
     <header class="hero">
-      <img class="hero__wash hero__wash--a" src="assets/img/wc/selva-01.png" alt="">
-      <img class="hero__wash hero__wash--b" src="assets/img/wc/selva-02.png" alt="">
+      <picture><source srcset="assets/img/wc/selva-01.webp" type="image/webp"><img class="hero__wash hero__wash--a" src="assets/img/wc/selva-01.png" alt="" width="1400" height="1000" fetchpriority="high"></picture>
+      <picture><source srcset="assets/img/wc/selva-02.webp" type="image/webp"><img class="hero__wash hero__wash--b" src="assets/img/wc/selva-02.png" alt="" width="1100" height="900" fetchpriority="high"></picture>
       <article class="hero__card reveal is-visible">
         <p class="hero__invite mono">los invitamos a celebrar nuestro matrimonio</p>
         <h1 class="display hero__names">
@@ -308,7 +308,7 @@
     <button class="drawer__close" data-drawer-close aria-label="Cerrar"><svg><use href="#i-close"/></svg></button>
   </div>
   <div class="drawer__body stack">
-    <iframe class="map-frame" title="Mapa de Palomino" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Palomino,+La+Guajira,+Colombia&z=13&output=embed"></iframe>
+    <iframe class="map-frame" title="Mapa de Palomino" referrerpolicy="no-referrer-when-downgrade" data-src="https://www.google.com/maps?q=Palomino,+La+Guajira,+Colombia&z=13&output=embed"></iframe>
     <dl class="facts">
       <dt>Encuentro</dt><dd>Bomba de gasolina La Sierrita, sobre la Troncal, en Palomino.</dd>
       <dt>Ceremonia</dt><dd>Hotel One Santuario, a 2 km de la principal, frente al río Palomino · <a class="link" href="https://maps.app.goo.gl/7ZkuoeTQYC2sWVmMA" target="_blank" rel="noopener">ver en Google Maps</a></dd>
@@ -327,13 +327,13 @@
     <p>Vestido largo y zapatos elegantes que sean aptos para caminar en terrenos inestables como arena y piedritas.</p>
     <p class="cluster"><span class="chip">Vestido largo</span><span class="chip">Telas livianas</span><span class="chip chip--sand">Suela plana o bloque</span></p>
     <div class="inspo">
-      <div class="inspo__item"><img src="assets/img/vestir/mujeres-01.jpg" alt="Vestido largo plisado verde lima, en la arena" loading="lazy"></div>
-      <div class="inspo__item"><img src="assets/img/vestir/mujeres-02.jpg" alt="Vestido largo plisado en verdes y dorados" loading="lazy"></div>
-      <div class="inspo__item"><img src="assets/img/vestir/mujeres-07.jpg" alt="Vestido largo verde salvia con flores bordadas y manga corta" loading="lazy"></div>
-      <div class="inspo__item"><img src="assets/img/vestir/mujeres-04.jpg" alt="Vestido largo fucsia con falda plisada, entre plátanos" loading="lazy"></div>
-      <div class="inspo__item"><img src="assets/img/vestir/mujeres-05.jpg" alt="Vestido largo estampado en rojos, de un hombro" loading="lazy"></div>
-      <div class="inspo__item"><img src="assets/img/vestir/mujeres-06.jpg" alt="Vestido largo naranja con volantes, en la selva" loading="lazy"></div>
-      <div class="inspo__item"><img src="assets/img/vestir/mujeres-08.jpg" alt="Vestido largo de hombros descubiertos con estampado de acuarela en verdes y fucsias" loading="lazy"></div>
+      <div class="inspo__item"><img data-src="assets/img/vestir/mujeres-01.jpg" alt="Vestido largo plisado verde lima, en la arena" decoding="async"></div>
+      <div class="inspo__item"><img data-src="assets/img/vestir/mujeres-02.jpg" alt="Vestido largo plisado en verdes y dorados" decoding="async"></div>
+      <div class="inspo__item"><img data-src="assets/img/vestir/mujeres-07.jpg" alt="Vestido largo verde salvia con flores bordadas y manga corta" decoding="async"></div>
+      <div class="inspo__item"><img data-src="assets/img/vestir/mujeres-04.jpg" alt="Vestido largo fucsia con falda plisada, entre plátanos" decoding="async"></div>
+      <div class="inspo__item"><img data-src="assets/img/vestir/mujeres-05.jpg" alt="Vestido largo estampado en rojos, de un hombro" decoding="async"></div>
+      <div class="inspo__item"><img data-src="assets/img/vestir/mujeres-06.jpg" alt="Vestido largo naranja con volantes, en la selva" decoding="async"></div>
+      <div class="inspo__item"><img data-src="assets/img/vestir/mujeres-08.jpg" alt="Vestido largo de hombros descubiertos con estampado de acuarela en verdes y fucsias" decoding="async"></div>
     </div>
   </div>
 </aside>
@@ -348,8 +348,8 @@
     <p class="soft">Pantalón de lino o algodón y zapato cerrado cómodo.</p>
     <p class="cluster"><span class="chip">Guayabera blanca</span><span class="chip">Pantalón beige</span><span class="chip chip--sand">Lino</span></p>
     <div class="inspo">
-      <div class="inspo__item"><img src="assets/img/vestir/hombres-01.jpg" alt="Guayabera blanca de lino y pantalón beige, frente al mar" loading="lazy"></div>
-      <div class="inspo__item"><img src="assets/img/vestir/hombres-02.jpg" alt="Guayabera blanca de alforzas, pantalón de lino crudo y mocasines café, junto al mar" loading="lazy"></div>
+      <div class="inspo__item"><img data-src="assets/img/vestir/hombres-01.jpg" alt="Guayabera blanca de lino y pantalón beige, frente al mar" decoding="async"></div>
+      <div class="inspo__item"><img data-src="assets/img/vestir/hombres-02.jpg" alt="Guayabera blanca de alforzas, pantalón de lino crudo y mocasines café, junto al mar" decoding="async"></div>
     </div>
   </div>
 </aside>

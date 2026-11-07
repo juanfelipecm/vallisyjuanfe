@@ -26,14 +26,20 @@
 .stage { position: relative; isolation: isolate; }
 .river-master { position: absolute; top: 0; left: 0; opacity: 0; pointer-events: none; }
 .river-master path { fill: none; }
+/* El río ocupa toda la altura y se revela recortando (clip-path) hasta --r;
+   así no hay cambios de layout en cada fotograma (evita CLS). */
 .river-reveal {
+  --r: 0px;
   position: absolute; top: 0; left: 0; width: 100%; height: 0;
   overflow: hidden; z-index: var(--z-river); pointer-events: none;
+  clip-path: inset(0 0 calc(100% - var(--r)) 0);
 }
 /* frente del río: se funde con la arena en vez de cortarse */
 .river-reveal::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 320px;
-  background: linear-gradient(to bottom, transparent, var(--bg) 85%);
+  /* 8px de más bajo el borde del recorte, para no dejar un filo de río por redondeo */
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 328px;
+  transform: translateY(calc(var(--r) - 320px));
+  background: linear-gradient(to bottom, transparent, var(--bg) 83%);
 }
 .river { position: absolute; left: 0; width: 100%; overflow: hidden; will-change: transform; }
 .river path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
@@ -57,7 +63,8 @@
   padding: var(--s-9) var(--gutter) var(--s-8);
   position: relative; overflow: hidden;
 }
-.hero__wash { position: absolute; z-index: 0; pointer-events: none; mix-blend-mode: multiply; }
+.hero > picture { display: contents; }
+.hero__wash { position: absolute; z-index: 0; height: auto; pointer-events: none; mix-blend-mode: multiply; }
 .hero__wash--a { width: min(62vw, 860px); right: -14vw; top: -10vh; transform: rotate(6deg); opacity: .85; }
 .hero__wash--b { width: min(52vw, 700px); left: -14vw; bottom: -14vh; transform: rotate(-9deg); opacity: .75; }
 .hero__card {

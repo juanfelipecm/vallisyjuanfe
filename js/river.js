@@ -83,33 +83,45 @@
   const NS = 'http://www.w3.org/2000/svg';
   function el(name, attrs) { const e = document.createElementNS(NS, name); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; }
 
-  function paintRiver(d) {
-    reveal.innerHTML = '';
+  // Los tramos se pintan a medida que el río se revela (cada filtro de acuarela
+  // es caro de rasterizar); `painted` cuenta los tramos ya creados.
+  const CHUNK = 900, M = 160;                    // alto del tramo y margen del filtro
+  let riverD = '', painted = 0, paintedW = 0;
+
+  function resetRiver(d) {
+    riverD = d; painted = 0; paintedW = W;
+    reveal.querySelectorAll('svg.river').forEach((s) => s.remove());
+  }
+
+  function paintUpTo(y) {
+    const need = Math.min(Math.ceil(H / CHUNK), Math.ceil(Math.max(0, y) / CHUNK));
+    while (painted < need) paintChunk(painted++);
+  }
+
+  function paintChunk(i) {
+    const d = riverD, top = i * CHUNK;
     const narrow = W < 900;
     const k = narrow ? 0.62 : 1;               // grosor en móvil
-    const CHUNK = 900, M = 160;                  // alto del tramo y margen del filtro
-    for (let top = 0, i = 0; top < H; top += CHUNK, i++) {
-      const h = Math.min(CHUNK, H - top);
-      const svg = el('svg', { class: 'river', viewBox: `0 ${top} ${W} ${h}`, width: W, height: h, 'aria-hidden': 'true' });
-      svg.style.top = `${top}px`;
-      const defs = el('defs', {});
-      // Ambos filtros comparten el meandro grande (misma semilla) para que el agua
-      // viva dentro de su orilla; difieren en la variación de ancho y el temblor fino.
-      defs.appendChild(filter(`wc-bank-${i}`, top - M, h + 2 * M, { big: [0.0028, 52 * k, 3], mid: [0.016, 18 * k, 41], fine: [0.11, 5 * k, 52], bloom: [0.005, 0.2, 63] }));
-      defs.appendChild(filter(`wc-water-${i}`, top - M, h + 2 * M, { big: [0.0028, 52 * k, 3], mid: [0.02, 12 * k, 44], fine: [0.14, 3.5 * k, 55], bloom: [0.012, 0.4, 66] }));
-      svg.appendChild(defs);
+    const h = Math.min(CHUNK, H - top);
+    const svg = el('svg', { class: 'river', viewBox: `0 ${top} ${W} ${h}`, width: W, height: h, 'aria-hidden': 'true' });
+    svg.style.top = `${top}px`;
+    const defs = el('defs', {});
+    // Ambos filtros comparten el meandro grande (misma semilla) para que el agua
+    // viva dentro de su orilla; difieren en la variación de ancho y el temblor fino.
+    defs.appendChild(filter(`wc-bank-${i}`, top - M, h + 2 * M, { big: [0.0028, 52 * k, 3], mid: [0.016, 18 * k, 41], fine: [0.11, 5 * k, 52], bloom: [0.005, 0.2, 63] }));
+    defs.appendChild(filter(`wc-water-${i}`, top - M, h + 2 * M, { big: [0.0028, 52 * k, 3], mid: [0.02, 12 * k, 44], fine: [0.14, 3.5 * k, 55], bloom: [0.012, 0.4, 66] }));
+    svg.appendChild(defs);
 
-      const gBank = el('g', { filter: `url(#wc-bank-${i})` });
-      gBank.appendChild(el('path', { d, class: 'river__bank', 'stroke-width': 84 * k }));
-      gBank.appendChild(el('path', { d, class: 'river__bank-deep', 'stroke-width': 46 * k, transform: `translate(${7 * k} ${4 * k})` }));
-      const gWater = el('g', { filter: `url(#wc-water-${i})` });
-      gWater.appendChild(el('path', { d, class: 'river__water-rim', 'stroke-width': 24 * k, transform: `translate(${2 * k} ${1 * k})` }));
-      gWater.appendChild(el('path', { d, class: 'river__water', 'stroke-width': 17 * k }));
-      gWater.appendChild(el('path', { d, class: 'river__water-light', 'stroke-width': 7 * k, transform: `translate(${-4 * k} ${2 * k})` }));
-      gWater.appendChild(el('path', { d, class: 'river__pigment', 'stroke-width': 3.5 * k, transform: `translate(${8 * k} ${-1 * k})` }));
-      svg.appendChild(gBank); svg.appendChild(gWater);
-      reveal.appendChild(svg);
-    }
+    const gBank = el('g', { filter: `url(#wc-bank-${i})` });
+    gBank.appendChild(el('path', { d, class: 'river__bank', 'stroke-width': 84 * k }));
+    gBank.appendChild(el('path', { d, class: 'river__bank-deep', 'stroke-width': 46 * k, transform: `translate(${7 * k} ${4 * k})` }));
+    const gWater = el('g', { filter: `url(#wc-water-${i})` });
+    gWater.appendChild(el('path', { d, class: 'river__water-rim', 'stroke-width': 24 * k, transform: `translate(${2 * k} ${1 * k})` }));
+    gWater.appendChild(el('path', { d, class: 'river__water', 'stroke-width': 17 * k }));
+    gWater.appendChild(el('path', { d, class: 'river__water-light', 'stroke-width': 7 * k, transform: `translate(${-4 * k} ${2 * k})` }));
+    gWater.appendChild(el('path', { d, class: 'river__pigment', 'stroke-width': 3.5 * k, transform: `translate(${8 * k} ${-1 * k})` }));
+    svg.appendChild(gBank); svg.appendChild(gWater);
+    reveal.appendChild(svg);
   }
 
   /* filtro de acuarela: meandro + variación de ancho + temblor fino + floraciones */
@@ -135,10 +147,12 @@
     W = stage.clientWidth; H = stage.offsetHeight;
     master.setAttribute('viewBox', `0 0 ${W} ${H}`);
     master.setAttribute('width', W); master.setAttribute('height', H);
+    reveal.style.height = `${H}px`;
     const d = smoothPath(waypoints());
     masterPath.setAttribute('d', d);
     L = masterPath.getTotalLength();
-    paintRiver(d);
+    // Solo se vuelve a pintar si la geometría cambió (fuentes, imágenes, resize).
+    if (d !== riverD || W !== paintedW) { resetRiver(d); paintUpTo(current + window.innerHeight); }
     docH = document.documentElement.scrollHeight - window.innerHeight;
     placeFlora();
   }
@@ -149,7 +163,7 @@
       FLORA.forEach((f) => {
         const div = document.createElement('div');
         div.className = 'flora__item';
-        div.innerHTML = `<img src="assets/img/wc/${f.src}.png" alt="" loading="lazy" decoding="async">`;
+        div.innerHTML = `<picture><source srcset="assets/img/wc/${f.src}.webp" type="image/webp"><img src="assets/img/wc/${f.src}.png" alt="" loading="lazy" decoding="async"></picture>`;
         floraRoot.appendChild(div);
         items.push({ ...f, el: div });
       });
@@ -189,7 +203,8 @@
     raf = null;
     const k = reduceMotion ? 1 : 0.08;
     current += (target - current) * k;
-    reveal.style.height = `${Math.max(0, Math.min(H, current))}px`;
+    reveal.style.setProperty('--r', `${Math.max(0, Math.min(H, current))}px`);
+    paintUpTo(current + window.innerHeight);
 
     const sy = window.scrollY, vh = window.innerHeight;
     const stageTop = stage.getBoundingClientRect().top + sy;
