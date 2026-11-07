@@ -188,3 +188,6 @@ body.drawer-open { overflow: hidden; }
   content: ""; width: .9rem; height: .9rem; margin-top: .4rem;
   border-radius: var(--r-blob); background: var(--green-300); box-shadow: 0 0 0 1px var(--green-500);
 }
+
+/* Contactos de transporte (Cómo llegar) */
+.contacts { list-style: none; padding: 0; margin: var(--s-2) 0 0; display: grid; gap: .25rem; }
